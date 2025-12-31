@@ -4,25 +4,86 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
-        "type": "tabs",
+        "id": "a93b79580def338a",
+        "type": "split",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00 - Dashboard/HOME.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "HOME"
-            }
+            "id": "4509724f8bf84da7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d8e7c4494bd1d641",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "02 - 知识/计算机/算法复杂度.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": false,
+                      "extraContext": false,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "算法复杂度"
+                }
+              }
+            ]
+          },
+          {
+            "id": "bdb9833d68923ef7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "94ffe19c901a189a",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "E:\\work-\\",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "name": "",
+                        "platforms": {
+                          "win32": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: claude"
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -41,7 +102,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -78,7 +140,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "5de8b220cbeefcea",
@@ -128,7 +190,9 @@
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "Tags"
@@ -151,56 +215,59 @@
       }
     ],
     "direction": "horizontal",
-    "width": 407.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "terminal:Open terminal": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "94ffe19c901a189a",
   "lastOpenFiles": [
-    "README.md",
-    "00 - Dashboard/HOME.md",
-    "99 - Meta/Templates/(TEMPLATE) Task.md",
-    "sda.md",
-    "99 - Meta/Templates/(TEMPLATE) Daily.md",
-    "99 - Meta/Templates/(TEMPLATE) Studies.md",
-    "99 - Meta/Templates/(TEMPLATE) Review.md",
-    "99 - Meta/Templates/(TEMPLATE) Reflection.md",
-    "99 - Meta/Templates/(TEMPLATE) Project.md",
-    "99 - Meta/Templates/(TEMPLATE) Idea.md",
-    "aaa.md",
-    "99 - Meta/System/Practical Usage Guide.md",
-    "99 - Meta/System/Organizational Methods in Obsidian.md",
-    "99 - Meta/System/Guide to Tags and Links - Note Organization in Obsidian.md",
-    "99 - Meta/System/General guide.md",
-    "Routine.md",
-    "02 - Knowledge/Computer/Algorithm_complexity.md",
-    "99 - Meta/Organizacao/Como classificar notas com tags.md",
-    "01 - Pessoal/Diario/2024-10-20.md",
-    "01 - Pessoal/Saude/Rotina.md",
-    "99 - Meta/Organizacao/Guia de uso da Vault.md",
-    "99 - Meta/Organizacao/Métodos Organizacionais no Obsidian.md",
-    "99 - Meta/Templates/(TEMPLATE) Tarefa.md",
-    "99 - Meta/Templates/(TEMPLATE) Projeto.md",
-    "99 - Meta/Templates/(TEMPLATE) Ideia.md",
-    "99 - Meta/Templates/(TEMPLATE) Estudos.md",
-    "04- Referencias/Cursos",
-    "02 - Conhecimento/Historia",
-    "02 - Conhecimento/Saude",
-    "02 - Conhecimento/Literatura",
-    "01 - Pessoa/Diario",
-    "01 - Pessoa",
-    "Diário",
-    "05 - Arquivados",
-    "05 - Referencias/Untitled",
-    "06 - Readwise/Books",
+    "99 - 元/系统/组织方法.md.tmp.11516.1767197145181",
+    "99 - 元/系统/实用指南.md.tmp.11516.1767197134729",
+    "99 - 元/系统/通用指南.md.tmp.11516.1767197133756",
+    "02 - 知识/计算机/算法复杂度.md",
+    "说明.md.tmp.11516.1767197098220",
+    "99 - 元/模板/(模板)任务.md",
+    "02 - 知识/计算机/算法复杂度.md.tmp.11516.1767196793024",
+    "00 - 仪表板/主页.md",
+    "00 - 仪表板/主页.md.tmp.11516.1767196782881",
+    "说明.md",
+    "说明.md.tmp.11516.1767196767084",
+    "99 - 元/模板/(模板)想法.md",
+    "99 - 元/模板/(模板)学习.md",
+    "99 - 元/模板/(TEMPLATE) Review.md",
+    "99 - 元/模板/(TEMPLATE) Reflection.md",
+    "99 - 元/模板/(TEMPLATE) Project.md",
+    "99 - 元/模板/(TEMPLATE) Idea.md",
+    "99 - 元/模板/(TEMPLATE) Daily.md",
+    "99 - 元/模板/(模板)项目.md",
+    "99 - 元/模板/(模板)日记.md",
+    "99 - 元/模板/(模板)反思.md",
+    "99 - 元/系统/Organizational Methods in Obsidian.md",
+    "99 - 元/模板/(模板)想法.md.tmp.11516.1767196737784",
+    "99 - 元/模板/(模板)反思.md.tmp.11516.1767196736794",
+    "99 - 元/模板/(模板)复习.md",
+    "99 - 元/模板/(模板)复习.md.tmp.11516.1767196735966",
+    "99 - 元/模板/(模板)学习.md.tmp.11516.1767196717975",
+    "99 - 元/系统/实用指南.md",
+    "99 - 元/系统/Guide to Tags and Links - Note Organization in Obsidian.md",
+    "99 - 元/系统/General guide.md",
+    "99 - 元/系统/组织方法.md",
+    "99 - 元/系统/通用指南.md",
+    "99 - 元/系统/标签和链接指南.md",
+    "99 - 元/模板/(TEMPLATE) Studies.md",
+    "99 - 元/模板/(TEMPLATE) Task.md",
+    "00 - 仪表板/HOME.md",
     "Untitled.canvas"
   ]
 }
