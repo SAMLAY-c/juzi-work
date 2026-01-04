@@ -4,86 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "a93b79580def338a",
-        "type": "split",
+        "id": "c76de9fe41b709e2",
+        "type": "tabs",
         "children": [
           {
-            "id": "4509724f8bf84da7",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "d8e7c4494bd1d641",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "02 - 知识/计算机/算法复杂度.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": true,
-                    "backlinkOpts": {
-                      "collapseAll": false,
-                      "extraContext": false,
-                      "sortOrder": "alphabetical",
-                      "showSearch": false,
-                      "searchQuery": "",
-                      "backlinkCollapsed": false,
-                      "unlinkedCollapsed": true
-                    }
-                  },
-                  "icon": "lucide-file",
-                  "title": "算法复杂度"
+            "id": "7056b3cd7864604c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "05 - 知识库/指导原则/03回答问题（文档）.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
                 }
-              }
-            ]
-          },
-          {
-            "id": "bdb9833d68923ef7",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "94ffe19c901a189a",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "E:\\work-\\",
-                      "focus": false,
-                      "profile": {
-                        "args": [],
-                        "executable": "C:\\Windows\\System32\\cmd.exe",
-                        "name": "",
-                        "platforms": {
-                          "win32": true
-                        },
-                        "pythonExecutable": "python3",
-                        "restoreHistory": false,
-                        "rightClickAction": "copyPaste",
-                        "successExitCodes": [
-                          "0",
-                          "SIGINT",
-                          "SIGTERM"
-                        ],
-                        "terminalOptions": {
-                          "documentOverride": null
-                        },
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "serial": null
-                    }
-                  },
-                  "pinned": true,
-                  "icon": "terminal",
-                  "title": "Terminal: claude"
-                }
-              }
-            ]
+              },
+              "icon": "lucide-file",
+              "title": "03回答问题（文档）"
+            }
           }
-        ],
-        "direction": "horizontal"
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +54,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "文件列表"
             }
           },
           {
@@ -220,31 +168,47 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:Create new base": false,
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false,
       "terminal:Open terminal": false
     }
   },
-  "active": "94ffe19c901a189a",
+  "active": "7056b3cd7864604c",
   "lastOpenFiles": [
-    "99 - 元/系统/组织方法.md.tmp.11516.1767197145181",
-    "99 - 元/系统/实用指南.md.tmp.11516.1767197134729",
-    "99 - 元/系统/通用指南.md.tmp.11516.1767197133756",
-    "02 - 知识/计算机/算法复杂度.md",
-    "说明.md.tmp.11516.1767197098220",
-    "99 - 元/模板/(模板)任务.md",
-    "02 - 知识/计算机/算法复杂度.md.tmp.11516.1767196793024",
-    "00 - 仪表板/主页.md",
-    "00 - 仪表板/主页.md.tmp.11516.1767196782881",
+    "05 - 知识库/指导原则/02-金字塔原理 - 怎么把话讲清楚.md",
+    "05 - 知识库/指导原则/01-如何正确做计划.md",
+    "05 - 知识库/指导原则/03回答问题（文档）.md",
+    "05 - 知识库/指导原则/final/01 做计划.md",
+    "05 - 知识库/指导原则/final/02-金字塔原理 - 怎么把话讲清楚.md",
+    "05 - 知识库/指导原则/final/03-回答问题（文档）.md",
+    "05 - 知识库/指导原则/final",
+    "05 - 知识库/指导原则",
+    "04 - 人际网络/同事/李佳芮.md",
+    "01 - 待办与任务/任务清单",
+    "01 - 待办与任务/工作计划",
+    "01 - 待办与任务/临时笔记",
+    "01 - 待办与任务",
+    "04 - 人际网络/同事/李佳瑞.md.tmp.16360.1767453137781",
+    "99 - 元/模板/(模板)人际关系.md",
+    "99 - 元/模板/(模板)人际关系.md.tmp.3280.1767452997155",
     "说明.md",
-    "说明.md.tmp.11516.1767196767084",
+    "04 - 人际网络/合作伙伴",
+    "04 - 人际网络/客户",
+    "99 - 元/系统/通用指南.md",
+    "00 - 仪表板/主页.md",
+    "99 - 元/系统/标签和链接指南.md",
+    "99 - 元/系统/实用指南.md",
     "99 - 元/模板/(模板)想法.md",
     "99 - 元/模板/(模板)学习.md",
+    "99 - 元/模板/(模板)任务.md",
+    "99 - 元/模板/(模板)复习.md",
+    "99 - 元/模板/(模板)反思.md",
+    "02 - 知识/计算机/算法复杂度.md",
     "99 - 元/模板/(TEMPLATE) Review.md",
     "99 - 元/模板/(TEMPLATE) Reflection.md",
     "99 - 元/模板/(TEMPLATE) Project.md",
@@ -252,22 +216,6 @@
     "99 - 元/模板/(TEMPLATE) Daily.md",
     "99 - 元/模板/(模板)项目.md",
     "99 - 元/模板/(模板)日记.md",
-    "99 - 元/模板/(模板)反思.md",
-    "99 - 元/系统/Organizational Methods in Obsidian.md",
-    "99 - 元/模板/(模板)想法.md.tmp.11516.1767196737784",
-    "99 - 元/模板/(模板)反思.md.tmp.11516.1767196736794",
-    "99 - 元/模板/(模板)复习.md",
-    "99 - 元/模板/(模板)复习.md.tmp.11516.1767196735966",
-    "99 - 元/模板/(模板)学习.md.tmp.11516.1767196717975",
-    "99 - 元/系统/实用指南.md",
-    "99 - 元/系统/Guide to Tags and Links - Note Organization in Obsidian.md",
-    "99 - 元/系统/General guide.md",
-    "99 - 元/系统/组织方法.md",
-    "99 - 元/系统/通用指南.md",
-    "99 - 元/系统/标签和链接指南.md",
-    "99 - 元/模板/(TEMPLATE) Studies.md",
-    "99 - 元/模板/(TEMPLATE) Task.md",
-    "00 - 仪表板/HOME.md",
     "Untitled.canvas"
   ]
 }
