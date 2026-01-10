@@ -1,0 +1,264 @@
+summaries:
+  avgProgress: values.filter(value.isType("number")).mean().round(1)
+  totalBudget: values.filter(value.isType("number")).sum()
+  avgTasks: values.filter(value.isType("number")).mean().round(1)
+  overdueCount: values.filter(value == true).length()
+filters:
+  or:
+    - file.hasTag("type/project")
+    - file.hasTag("type/项目")
+    - file.inFolder("01 - 个人/项目")
+formulas:
+  progress_percent: if(total_tasks > 0, (completed_tasks / total_tasks * 100).round(0), 0)
+  progress_bar: if(progress, "▰".repeat(progress.round(0) / 5) + "▱".repeat(20 - progress.round(0) / 5), "")
+  status_icon: if(status == "planning", "📋", if(status == "active", "🚀", if(status == "paused", "⏸️", if(status == "completed", "✅", if(status == "cancelled", "❌", "❓")))))
+  priority_icon: if(priority == "high", "🔴 高", if(priority == "medium", "🟡 中", "🟢 低"))
+  is_overdue: if(due_date && status != "completed" && status != "cancelled", date(due_date) < today(), false)
+  days_until_due: if(due_date, ((date(due_date) - today()) / 86400000).round(0), "")
+  overdue_warning: 'if(is_overdue, "⚠️ 逾期 " + ((today() - date(due_date)) / 86400000).round(0).toString() + " 天", if(days_until_due != "", (days_until_due >= 0 ? "🔜 还有 " + days_until_due.toString() + " 天" : "⚠️ 已逾期 " + (days_until_due * -1).toString() + " 天"), ""))'
+  stakeholder_count: if(stakeholders, stakeholders.length, 0)
+  stakeholders_short: if(stakeholder_count > 2, stakeholders.slice(0, 2).join(", ") + " 等" + stakeholder_count.toString() + "人", if(stakeholder_count > 0, stakeholders.join(", "), "无"))
+  task_completion: if(total_tasks > 0, completed_tasks + "/" + total_tasks + " (" + progress_percent + "%)", "")
+  duration_days: if(start_date && due_date, ((date(due_date) - date(start_date)) / 86400000).round(0), if(start_date, ((today() - date(start_date)) / 86400000).round(0), ""))
+  last_updated: file.mtime.relative()
+  created_date: file.ctime.format("YYYY-MM-DD")
+  completion_time: if(completed_date && start_date, ((date(completed_date) - date(start_date)) / 86400000).round(0) + " 天", "")
+  budget_usage: if(budget > 0, "¥" + actual_cost + " / ¥" + budget + " (" + (actual_cost / budget * 100).round(0) + "%)", "")
+  has_dependencies: if(depends_on, depends_on.length > 0, false)
+  dependencies_display: if(has_dependencies, depends_on.join(", "), "无")
+properties:
+  status:
+    displayName: 状态
+  priority:
+    displayName: 优先级
+  formula.priority_icon:
+    displayName: 优先级
+  progress:
+    displayName: 进度%
+  formula.progress_bar:
+    displayName: 进度条
+  stakeholders:
+    displayName: 对接人
+  formula.stakeholders_short:
+    displayName: 对接人
+  formula.stakeholder_count:
+    displayName: 人数
+  start_date:
+    displayName: 开始日期
+  due_date:
+    displayName: 到期日期
+  formula.days_until_due:
+    displayName: 距离到期
+  formula.overdue_warning:
+    displayName: 状态提示
+  category:
+    displayName: 分类
+  total_tasks:
+    displayName: 总任务
+  completed_tasks:
+    displayName: 已完成
+  formula.task_completion:
+    displayName: 完成情况
+  formula.last_updated:
+    displayName: 更新时间
+  formula.duration_days:
+    displayName: 持续天数
+  depends_on:
+    displayName: 依赖
+  formula.dependencies_display:
+    displayName: 依赖项目
+  budget:
+    displayName: 预算
+  actual_cost:
+    displayName: 实际花费
+  formula.budget_usage:
+    displayName: 预算使用
+views:
+  - type: table
+    name: 项目总览
+    filters:
+      not:
+        - status == "cancelled"
+    groupBy:
+      property: category
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - status
+      - formula.priority_icon
+      - formula.progress_bar
+      - progress
+      - formula.stakeholders_short
+      - due_date
+      - formula.overdue_warning
+      - formula.task_completion
+      - formula.last_updated
+    summaries:
+      progress: avgProgress
+      budget: totalBudget
+      total_tasks: avgTasks
+      formula.is_overdue: overdueCount
+  - type: table
+    name: 活跃项目
+    filters:
+      and:
+        - status == "active"
+    groupBy:
+      property: priority
+      direction: DESC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.priority_icon
+      - formula.progress_bar
+      - progress
+      - stakeholders
+      - due_date
+      - formula.overdue_warning
+      - formula.task_completion
+      - formula.last_updated
+  - type: table
+    name: 计划中项目
+    filters:
+      and:
+        - status == "planning"
+    order:
+      - formula.priority_icon
+      - file.name
+      - category
+      - stakeholders
+      - start_date
+      - due_date
+      - formula.dependencies_display
+  - type: table
+    name: 已完成项目
+    filters:
+      and:
+        - status == "completed"
+    order:
+      - formula.status_icon
+      - file.name
+      - completed_date
+      - formula.completion_time
+      - progress
+      - formula.task_completion
+      - budget
+      - actual_cost
+      - formula.budget_usage
+  - type: cards
+    name: 项目卡片
+    filters:
+      not:
+        - status == "cancelled"
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - formula.progress_bar
+      - stakeholders
+      - due_date
+      - formula.overdue_warning
+      - formula.task_completion
+  - type: table
+    name: 项目看板
+    filters:
+      not:
+        - status == "cancelled"
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.priority_icon
+      - formula.progress_bar
+      - stakeholders
+      - formula.overdue_warning
+      - formula.task_completion
+  - type: table
+    name: 逾期和紧急
+    filters:
+      or:
+        - is_overdue == true
+        - and:
+            - priority == "high"
+            - status != "completed"
+            - status != "cancelled"
+    order:
+      - formula.overdue_warning
+      - formula.priority_icon
+      - file.name
+      - status
+      - due_date
+      - stakeholders
+      - formula.progress_bar
+  - type: table
+    name: 按对接人
+    filters:
+      and:
+        - stakeholder_count > 0
+    groupBy:
+      property: stakeholders
+      direction: ASC
+    order:
+      - stakeholders
+      - file.name
+      - status
+      - formula.priority_icon
+      - formula.progress_bar
+      - due_date
+      - formula.overdue_warning
+  - type: table
+    name: 依赖关系
+    filters:
+      and:
+        - has_dependencies == true
+    order:
+      - file.name
+      - status
+      - formula.dependencies_display
+      - blocks
+      - formula.progress_bar
+      - stakeholders
+  - type: table
+    name: 财务和资源
+    filters:
+      or:
+        - budget > 0
+        - actual_cost > 0
+    order:
+      - file.name
+      - status
+      - budget
+      - actual_cost
+      - formula.budget_usage
+      - formula.progress_bar
+      - stakeholders
+    summaries:
+      budget: totalBudget
+      actual_cost: totalBudget
+  - type: table
+    name: 时间线
+    filters:
+      and:
+        - start_date != ""
+    order:
+      - start_date
+      - file.name
+      - status
+      - due_date
+      - formula.duration_days
+      - formula.progress_bar
+      - stakeholders
+  - type: list
+    name: 项目清单
+    filters:
+      not:
+        - status == "cancelled"
+    order:
+      - file.name
+      - status
+      - formula.priority_icon

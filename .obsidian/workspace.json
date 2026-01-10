@@ -4,31 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "c76de9fe41b709e2",
+        "id": "bb73d811657c77b4",
         "type": "tabs",
         "children": [
           {
-            "id": "7056b3cd7864604c",
+            "id": "94c2cad42f13bd4d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "05 - 知识库/指导原则/03回答问题（文档）.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "项目管理系统.base",
+                "viewName": "项目总览"
               },
-              "icon": "lucide-file",
-              "title": "03回答问题（文档）"
+              "icon": "lucide-table",
+              "title": "项目管理系统"
             }
           }
         ]
@@ -178,11 +167,16 @@
       "terminal:Open terminal": false
     }
   },
-  "active": "7056b3cd7864604c",
+  "active": "68bb7de61e844525",
   "lastOpenFiles": [
+    "99 - 元/bases/项目管理系统.base",
+    "项目管理系统.base",
+    "项目管理系统.base_副本",
+    "99 - 元/bases/项目管理系统.base_副本",
+    "01 - 个人/项目/示例项目 - Obsidian Base 搭建.md",
+    "05 - 知识库/指导原则/03回答问题（文档）.md",
     "05 - 知识库/指导原则/02-金字塔原理 - 怎么把话讲清楚.md",
     "05 - 知识库/指导原则/01-如何正确做计划.md",
-    "05 - 知识库/指导原则/03回答问题（文档）.md",
     "05 - 知识库/指导原则/final/01 做计划.md",
     "05 - 知识库/指导原则/final/02-金字塔原理 - 怎么把话讲清楚.md",
     "05 - 知识库/指导原则/final/03-回答问题（文档）.md",
@@ -195,10 +189,7 @@
     "01 - 待办与任务",
     "04 - 人际网络/同事/李佳瑞.md.tmp.16360.1767453137781",
     "99 - 元/模板/(模板)人际关系.md",
-    "99 - 元/模板/(模板)人际关系.md.tmp.3280.1767452997155",
     "说明.md",
-    "04 - 人际网络/合作伙伴",
-    "04 - 人际网络/客户",
     "99 - 元/系统/通用指南.md",
     "00 - 仪表板/主页.md",
     "99 - 元/系统/标签和链接指南.md",
@@ -214,8 +205,6 @@
     "99 - 元/模板/(TEMPLATE) Project.md",
     "99 - 元/模板/(TEMPLATE) Idea.md",
     "99 - 元/模板/(TEMPLATE) Daily.md",
-    "99 - 元/模板/(模板)项目.md",
-    "99 - 元/模板/(模板)日记.md",
     "Untitled.canvas"
   ]
 }
