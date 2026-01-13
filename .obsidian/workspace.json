@@ -32,6 +32,36 @@
             }
           }
         ]
+      },
+      {
+        "id": "b8089b2f819e4f5c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b76d1de041f909d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "熟悉岗位/AI 原生组织：内外协同战略-讲解.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "AI 原生组织：内外协同战略-讲解"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -180,11 +210,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2e890a5202d2c629",
+  "active": "b76d1de041f909d6",
   "lastOpenFiles": [
+    "熟悉岗位/未命名.md",
+    "熟悉岗位/AI 原生组织：内外协同战略-讲解.md",
     "Pasted image 20260113095109.png",
     "未命名.canvas",
-    "熟悉岗位/未命名.md",
     "熟悉岗位",
     "熟悉公司-综合分析报告.md",
     "05 - 知识库/行业信息/飞书/未命名.md",
