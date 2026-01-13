@@ -10,7 +10,10 @@
       "Bash(mkdir:*)",
       "Bash(git commit:*)",
       "Bash(git config:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git restore:*)"
     ]
   }
 }
