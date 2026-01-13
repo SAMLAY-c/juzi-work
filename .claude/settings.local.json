@@ -13,7 +13,9 @@
       "Bash(git remote set-url:*)",
       "Bash(git push:*)",
       "Bash(git pull:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(git clone:*)",
+      "Bash(open:*)"
     ]
   }
 }
