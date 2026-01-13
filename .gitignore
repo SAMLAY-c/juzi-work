@@ -1,9 +1,18 @@
+# Obsidian
 .trash/
 .DS_Store
 
+# Workspace files (device-specific, causes merge conflicts)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
 
+# Obsidian Git plugin conflict file
+conflict-files-obsidian-git.md
 
+# Temporary files
+*.tmp
+*.bak
+*~
 
-
-# Ignore Smart Environment folder
+# Smart Environment folder
 .smart-env
