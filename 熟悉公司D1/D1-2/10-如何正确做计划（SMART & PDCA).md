@@ -1,0 +1,179 @@
+![](https://juzihudong.feishu.cn/space/api/box/stream/download/asynccode/?code=MDUwMmZkYmNkNDZhMDBhNWY0YmE1YzUzNWNlMDJkODlfQlFqZlRDYlpNQ3VTWFZoWmRpWWFiZ0hIcE1YdklzM3lfVG9rZW46Ym94Y25jcDJYMXRCZ1lWVkFzeklDNXZNTU9nXzE3NjgyMjc5NjY6MTc2ODIzMTU2Nl9WNA)
+
+1. 计划制定后，在中期之前可以调整
+    
+2. 调整需要提供清晰的调整说明原因，通过书面进行更新和提交后生效
+    
+3. 中期的定义，以整个周期一半时间为准（可以取整到自然日）
+    
+
+  
+
+## 定目标：SMART
+
+- **S**pecific (simple, sensible, significant).
+    
+- **M**easurable (meaningful, motivating).
+    
+- **A**chievable (agreed, attainable).
+    
+- **R**elevant (reasonable, realistic and resourced, results-based).
+    
+- **T**ime bound (time-based, time limited, time/cost limited, timely, time-sensitive).
+    
+
+  
+
+1. ### Specific
+    
+
+- **What** do I want to accomplish?
+    
+- **Why** is this goal important?
+    
+- **Who** is involved?
+    
+- **Where** is it located?
+    
+- **Which** resources or limits are involved?
+    
+
+具体的
+
+- 比如，“持续提高产品质量”，就是一个模棱两可的目标，不够具体。
+    
+- 你可以试着把它改成：“降低严重的产品缺陷数”，这就变得非常具体了。
+    
+
+2. ### Measurable
+    
+
+- How much?
+    
+- How many?
+    
+- How will I know when it is accomplished?
+    
+
+可衡量的：意味着要避免争议
+
+- 降低多少严重的产品缺陷数，算是降低？
+    
+- 所以可以修改为：严重的产品缺陷数减少50%。
+    
+
+3. ### Achievable
+    
+
+- How can I accomplish this goal?
+    
+- How realistic is the goal, based on other constraints, such as financial factors?
+    
+
+可实现的，就是你的目标不能定得太离谱，至少跳一跳，还是能够得着。
+
+4. ### Relevant
+    
+
+- Does this seem worthwhile?
+    
+- Is this the right time?
+    
+- Does this match our other efforts/needs?
+    
+- Am I the right person to reach this goal?
+    
+- Is it applicable in the current socio-economic environment?
+    
+
+砍掉无关目标
+
+5. ### Time bound
+    
+
+- When?
+    
+- What can I do six months from now?
+    
+- What can I do six weeks from now?
+    
+- What can I do today?
+    
+
+目标得有一个时间限制，一年还是半年，不能无限拖延。
+
+## 拆目标
+
+我们说，目标是有时间限制的。
+
+比如，年目标。它的时间纬度是一年，也就是365天。
+
+要完成年目标，就得把它按季度，按月，按周去拆解。
+
+比如，销售负责人的年目标是完成1000万销售额。
+
+那怎么来实现这个目标，得去拆分它。
+
+比如，先按季度来拆分，一年有4个季度，每个季度完成多少。
+
+每个季度有三个月，每个月又需要完成多少。
+
+再继续拆分到周，每周要完成多少。
+
+半年过去了，上半年有几个突然事情，影响了销售业绩。
+
+导致实际完成和目标之间出现了巨大差距怎么办。
+
+总不能凭运气，或者干脆等概率降临吧。
+
+这时候，就要从目标倒推，找到差距，留出冗余。
+
+然后，重新拆解目标。
+
+## 执行循环：PDCA
+
+![](https://juzihudong.feishu.cn/space/api/box/stream/download/asynccode/?code=YzI0YTY4OTllZjNhNTBlYWIyNDdiN2RhMjExNTBjNWVfTkxDd0kxcnFOTmVkYnVhR3EyRUhCOG5pdmlyZlZUWGhfVG9rZW46Ym94Y25ZclVzM2xRMWEzZFBoTlU5SW5IR3lxXzE3NjgyMjc5NjY6MTc2ODIzMTU2Nl9WNA)
+
+### Plan（计划）
+
+- What is the core problem we need to solve?
+    
+- What resources do we need?
+    
+- What resources do we have?
+    
+- What is the best solution for fixing the problem with the available resources?
+    
+- In what conditions will the plan be considered successful? What are the goals?
+    
+
+每周的周例会/每次的项目会/交付会，其实就是一次计划会议，应该包含四点：
+
+1. 根据现状找出问题；
+    
+2. 根据问题找出原因；
+    
+3. 确定主要原因；
+    
+4. 针对主要原因，提出计划。
+    
+
+### Do（行动）
+
+Be aware that unpredicted problems may occur at this phase. This is why, in a perfect situation, you may first try to incorporate your plan on a small scale and in a controlled environment.
+
+基于计划的具有任务，因为有计划的拆分，执行就变得责任明确、优先级清晰。
+
+### _**Check（检查）**_
+
+This is probably the **most important** stage of the PDCA cycle. If you want to clarify your plan, avoid recurring mistakes, and apply continuous improvement successfully, you need to pay enough attention to the CHECK phase.
+
+Here, you need to audit your plan’s execution and see if your initial plan actually worked. Moreover, your team will be able to identify problematic parts of the current process and eliminate them in the future. If something went wrong during the process, you need to analyze it and find the root cause of the problems.
+
+  
+
+每一件交代出去的任务，就像一个扔出去的回行镖，最终必须回到你的手上。这是PDCA的关键。
+
+### Act（处理）
+
+把没有解决的问题转入下一个PDCA循环。这将保证，问题一旦出鞘，最终一定会被解决，避免遗漏重要问题。

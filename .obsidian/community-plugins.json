@@ -1,4 +1,6 @@
 [
   "terminal",
-  "dataview"
+  "dataview",
+  "obsidian-local-rest-api",
+  "obsidian-excalidraw-plugin"
 ]

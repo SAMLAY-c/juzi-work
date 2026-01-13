@@ -1,0 +1,292 @@
+summaries:
+  avgValue: values.filter(value.isType("number")).mean().round(1)
+  avgFamiliarity: values.filter(value.isType("number")).mean().round(1)
+  totalApplications: values.filter(value.isType("number")).sum()
+  masteredCount: values.filter(value == "mastered").length()
+filters:
+  or:
+    - file.hasTag("theme/AI")
+    - file.hasTag("theme/ai")
+    - file.hasTag("ai/")
+    - file.inFolder("01 - 个人/AI 技巧知识库")
+formulas:
+  model_icon: if(ai_model == "chatgpt", "🤖 GPT", if(ai_model == "claude", "🧠 Claude", if(ai_model == "gemini", "💎 Gemini", if(ai_model == "midjourney", "🎨 MJ", if(ai_model == "sd", "🖼️ SD", "🔀 通用")))))
+  status_icon: if(status == "new", "🆕", if(status == "processing", "📖", if(status == "processed", "✅", if(status == "applied", "💪", if(status == "mastered", "⭐", "❓")))))
+  value_stars: if(value_rating, "⭐".repeat(value_rating) + "☆".repeat(10 - value_rating), "")
+  familiarity_bar: if(familiarity, "▓".repeat(familiarity / 10) + "░".repeat(10 - familiarity / 10), "")
+  category_cn: if(tip_type == "technique", "技巧", if(tip_type == "workflow", "工作流", if(tip_type == "pattern", "模式", if(tip_type == "best_practice", "最佳实践", "其他"))))
+  difficulty_display: if(difficulty == "beginner", "🟢 入门", if(difficulty == "intermediate", "🟡 中级", "🔴 高级"))
+  priority_icon: if(priority == "high", "🔴 高", if(priority == "medium", "🟡 中", "🟢 低"))
+  is_multi_model: if(models, models.length > 1, false)
+  models_display: if(is_multi_model, models.join(" + "), model_icon)
+  learning_progress: if(status == "mastered", "100%", if(status == "applied", "80%", if(status == "processed", "60%", if(status == "processing", "30%", "0%"))))
+  last_updated_relative: file.mtime.relative()
+  key_points_count: if(key_points, key_points.length, 0)
+properties:
+  ai_model:
+    displayName: AI 模型
+  formula.model_icon:
+    displayName: 模型
+  status:
+    displayName: 状态
+  category:
+    displayName: 分类
+  scenario:
+    displayName: 使用场景
+  formula.category_cn:
+    displayName: 技巧类型
+  difficulty:
+    displayName: 难度
+  formula.difficulty_display:
+    displayName: 难度
+  priority:
+    displayName: 优先级
+  formula.priority_icon:
+    displayName: 优先级
+  value_rating:
+    displayName: 价值评分
+  formula.value_stars:
+    displayName: 价值
+  familiarity:
+    displayName: 熟悉度
+  formula.familiarity_bar:
+    displayName: 熟悉度
+  source_account:
+    displayName: 来源账号
+  publish_date:
+    displayName: 发布日期
+  applied:
+    displayName: 已应用
+  application_count:
+    displayName: 应用次数
+  formula.last_updated_relative:
+    displayName: 更新时间
+views:
+  - type: table
+    name: 全部技巧总览
+    groupBy:
+      property: ai_model
+      direction: ASC
+    order:
+      - formula.model_icon
+      - file.name
+      - formula.status_icon
+      - formula.category_cn
+      - scenario
+      - formula.difficulty_display
+      - formula.value_stars
+      - formula.familiarity_bar
+      - formula.priority_icon
+    summaries:
+      value_rating: avgValue
+      familiarity: avgFamiliarity
+      application_count: totalApplications
+      status: masteredCount
+  - type: table
+    name: ChatGPT 技巧
+    filters:
+      and:
+        - ai_model == "chatgpt"
+    groupBy:
+      property: scenario
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.priority_icon
+      - formula.last_updated_relative
+  - type: table
+    name: Claude 技巧
+    filters:
+      and:
+        - ai_model == "claude"
+    groupBy:
+      property: scenario
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.priority_icon
+      - formula.last_updated_relative
+  - type: table
+    name: Gemini 技巧
+    filters:
+      and:
+        - ai_model == "gemini"
+    groupBy:
+      property: scenario
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.priority_icon
+      - formula.last_updated_relative
+  - type: table
+    name: Midjourney 技巧
+    filters:
+      and:
+        - ai_model == "midjourney"
+    groupBy:
+      property: scenario
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.priority_icon
+      - formula.last_updated_relative
+  - type: table
+    name: Stable Diffusion 技巧
+    filters:
+      and:
+        - ai_model == "sd"
+    groupBy:
+      property: scenario
+      direction: ASC
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.priority_icon
+      - formula.last_updated_relative
+  - type: table
+    name: 通用技巧
+    filters:
+      and:
+        - ai_model == "general"
+    order:
+      - formula.status_icon
+      - file.name
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.models_display
+      - formula.priority_icon
+      - formula.last_updated_relative
+  - type: table
+    name: 高价值技巧
+    filters:
+      and:
+        - value_rating >= 7
+    order:
+      - value_rating
+      - formula.model_icon
+      - formula.value_stars
+      - file.name
+      - formula.status_icon
+      - formula.category_cn
+      - scenario
+      - formula.familiarity_bar
+      - formula.last_updated_relative
+  - type: table
+    name: 待学习技巧
+    filters:
+      or:
+        - status == "new"
+        - status == "processing"
+    order:
+      - formula.priority_icon
+      - priority
+      - formula.model_icon
+      - file.name
+      - formula.status_icon
+      - formula.category_cn
+      - scenario
+      - publish_date
+      - formula.last_updated_relative
+  - type: table
+    name: 已掌握技巧
+    filters:
+      and:
+        - status == "mastered"
+    order:
+      - application_count
+      - formula.model_icon
+      - file.name
+      - formula.value_stars
+      - scenario
+      - formula.last_updated_relative
+  - type: cards
+    name: 应用场景视图
+    groupBy:
+      property: scenario
+      direction: ASC
+    order:
+      - file.name
+      - formula.model_icon
+      - formula.status_icon
+      - formula.category_cn
+      - formula.value_stars
+      - scenario
+      - formula.difficulty_display
+      - formula.last_updated_relative
+  - type: table
+    name: 技巧类型分类
+    groupBy:
+      property: tip_type
+      direction: ASC
+    order:
+      - formula.model_icon
+      - file.name
+      - formula.status_icon
+      - formula.category_cn
+      - scenario
+      - formula.value_stars
+      - formula.difficulty_display
+      - formula.last_updated_relative
+  - type: table
+    name: 来源追踪
+    groupBy:
+      property: source_account
+      direction: ASC
+    order:
+      - source_account
+      - publish_date
+      - formula.model_icon
+      - file.name
+      - formula.value_stars
+      - formula.status_icon
+      - formula.last_updated_relative
+  - type: table
+    name: 待复习列表
+    filters:
+      or:
+        - review_status == "pending"
+        - familiarity < 5
+        - familiarity == ""
+    order:
+      - familiarity
+      - formula.model_icon
+      - file.name
+      - formula.status_icon
+      - formula.familiarity_bar
+      - formula.value_stars
+      - scenario
+      - formula.last_updated_relative
+  - type: list
+    name: 简单列表
+    order:
+      - ai_model
+      - formula.model_icon
+      - file.name
+      - formula.status_icon
+      - formula.last_updated_relative
