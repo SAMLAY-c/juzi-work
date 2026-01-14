@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"core-concept","type":"text","text":"## 核心观念转变\n\n**以前（软件时代）：** 卖工具（锤子）\n- 需要人去点击、操作\n\n**现在（AI 时代）：** 卖 AI 员工（会钉钉子的机器人）\n- 能听懂人话、自动干活、7x24小时待命","x":0,"y":-140,"width":580,"height":240,"color":"1"},
+		{"id":"miaohui-why","type":"text","text":"## 为什么需要秒回？\n\n解决 **「业务如何承接 AI」** 的问题：\n\n- 多 IM 真实业务如何承接\n- 多 IM 真实业务如何协作\n- 多 IM 真实业务如何可度量","x":0,"y":160,"width":600,"height":200,"color":"6"},
+		{"id":"delivery-loop","type":"text","text":"## 交付闭环\n\n1. **定义角色**（秒懂）\n   - 设定 AI 是客服还是销售\n\n2. **真实上岗**（秒回）\n   - 放到真实客户群里聊天\n\n3. **发现问题**（看数据）\n   - 看哪里回得不对\n\n4. **持续优化**（回秒懂）\n   - 调整参数和知识","x":0,"y":1060,"width":580,"height":290,"color":"3"},
+		{"id":"main-title","type":"text","text":"# 秒回 AI（触手）\n\n## 业务如何承接 AI","x":40,"y":-320,"width":500,"height":120,"color":"6"},
+		{"id":"miaohui-intro","type":"text","text":"## 触手 = 秒回\n\n**作用：** 连接客户、发送消息\n\n**负责：** 把 AI 接入真实场景\n- 微信、飞书、抖音\n- 真正把话发出去\n- 真正把人拉进群","x":980,"y":-160,"width":340,"height":320,"color":"6"},
+		{"id":"console","type":"text","text":"### 企业/小组控制台\n\n**定位：** 营销策略主战场\n\n**企业控制台：**\n- 人员管理、权限管理\n- 素材管理\n\n**小组控制台：**\n- 账号管理、客户管理\n- SOP 配置、群发策略\n\n**适用：** 主动触达，按节奏推进用户到转化与复购","x":420,"y":510,"width":360,"height":410,"color":"5"},
+		{"id":"ai-workbench","type":"text","text":"### AI 工作台（⭐核心）\n\n**定位：** 业务和产研 PE 权限分离的自助层\n\n**AI 应用：**\n- AI SOP\n- 会话小结\n- 聊天分析\n- AI 自动化运营\n- AI 质检\n\n**AI 调优：**\n- 用户反馈视图\n- 知识库\n\n**AI 用户画像：**\n- AI 用户属性配置\n- 侧边栏展示客户属性\n\n**数据洞察：**\n- AI 数据仪表盘\n- AI 数据分析\n\n---\n\n**核心价值：** 将 AI 能力和业务场景结合，帮助企业完成工作 & 管理提效","x":840,"y":360,"width":620,"height":560,"color":"5"},
+		{"id":"relationship","type":"text","text":"## 与秒懂的关系\n\n**句子通过「秒懂」+「秒回」搭一套为 AI 上岗交付的基础设施**\n\n- **秒懂（大脑）：** 定义 AI 能力、搭建智能体、测试调优\n- **秒回（触手）：** 接入真实场景、执行业务动作、数据反馈\n- **闭环飞轮：** 秒懂定义 → 秒回上岗 → 发现问题 → 秒懂优化\n\n**秒回的核心价值：** 把秒懂定义的 AI 能力，真正落地到业务场景中，让 AI 数字员工真正上岗干活","x":810,"y":1030,"width":680,"height":320,"color":"1"},
+		{"id":"chat-workbench","type":"text","text":"### 聊天工作台\n\n**定位：** 客户沟通主战场\n\n**功能：**\n- 聚合聊天\n- 人机协作\n\n**目标用户：** 一线客服","x":0,"y":510,"width":360,"height":250,"color":"5"}
+	],
+	"edges":[
+		{"id":"edge-1","fromNode":"main-title","fromSide":"bottom","toNode":"core-concept","toSide":"top"},
+		{"id":"edge-2","fromNode":"core-concept","fromSide":"right","toNode":"miaohui-intro","toSide":"left"},
+		{"id":"edge-3","fromNode":"core-concept","fromSide":"bottom","toNode":"miaohui-why","toSide":"top"},
+		{"id":"edge-4","fromNode":"miaohui-why","fromSide":"bottom","toNode":"chat-workbench","toSide":"top"},
+		{"id":"edge-5","fromNode":"miaohui-why","fromSide":"bottom","toNode":"console","toSide":"top"},
+		{"id":"edge-6","fromNode":"miaohui-why","fromSide":"bottom","toNode":"ai-workbench","toSide":"top"},
+		{"id":"edge-7","fromNode":"chat-workbench","fromSide":"bottom","toNode":"delivery-loop","toSide":"top","label":"真实上岗"},
+		{"id":"edge-8","fromNode":"console","fromSide":"bottom","toNode":"delivery-loop","toSide":"top"},
+		{"id":"edge-9","fromNode":"ai-workbench","fromSide":"bottom","toNode":"relationship","toSide":"top"},
+		{"id":"edge-11","fromNode":"miaohui-intro","fromSide":"bottom","toNode":"ai-workbench","toSide":"top","label":"承接"},
+		{"id":"58f9ccbd804b9d37","fromNode":"delivery-loop","fromSide":"right","toNode":"relationship","toSide":"left"}
+	]
+}

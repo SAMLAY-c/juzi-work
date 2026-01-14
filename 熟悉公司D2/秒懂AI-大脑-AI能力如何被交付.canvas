@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"knowledge-base","type":"text","text":"### 知识库\n\n内含不同行业和业务的\n**最佳实践 Agent**\n\n让客户无需技术，通过对话\n检索出最适配的最佳实践\n结合企业知识，捏出适合的员工","x":620,"y":444,"width":560,"height":214,"color":"2"},
+		{"id":"test-center","type":"text","text":"### 测试中心\n\n- **提示词单点调试**\n  - 成本测试\n  - 提示词定期调优\n\n- **链路调试**\n  - 全链路测试\n  - 聊天历史测试\n  - badcase 复测\n\n- **场景用例拓展测试**\n  - 批量场景测试","x":620,"y":734,"width":560,"height":316,"color":"2"},
+		{"id":"optimize-center","type":"text","text":"### 调优中心\n\n**模拟真实环境测试：**\n- 模拟从新加好友到实际会话\n- 模拟用户标签、属性状态\n- 模拟真实动作（打标签/拉群）\n\n**AI 辅助评估：**\n- AI 评估测试结果\n- 小懂可自动化调优\n\n**实时反馈：**\n- AI 反馈开关\n- 点踩数据对接调优中心\n- 反馈直达 PE 飞书群\n\n**报错预警：**\n- 流程引擎报警\n- 飞书群报警\n- 明确报错信息","x":620,"y":1120,"width":560,"height":600,"color":"2"},
+		{"id":"memory-system","type":"text","text":"### 记忆系统\n**会话属性：**\n秒回系统天然提供很多数据\n- 这些数据是系统的「护城河」\n- 记得每个人、理解关系、延续上下文","x":-10,"y":1050,"width":560,"height":230,"color":"2"},
+		{"id":"relationship","type":"text","text":"## 与秒回的关系\n\n**句子通过「秒懂」+「秒回」搭一套为 AI 上岗交付的基础设施**\n\n- **秒懂（大脑）：** 定义 AI 能力、搭建智能体、测试调优\n- **秒回（触手）：** 接入真实场景、执行业务动作、数据反馈\n- **闭环飞轮：** 秒懂定义 → 秒回上岗 → 发现问题 → 秒懂优化","x":720,"y":1760,"width":580,"height":260,"color":"1"},
+		{"id":"delivery-loop","type":"text","text":"## 交付闭环\n\n1. **定义角色**（秒懂）\n   - 设定 AI 是客服还是销售\n\n2. **真实上岗**（秒回）\n   - 放到真实客户群里聊天\n\n3. **发现问题**（看数据）\n   - 看哪里回得不对\n\n4. **持续优化**（回秒懂）\n   - 调整参数和知识","x":-30,"y":1720,"width":580,"height":340,"color":"3"},
+		{"id":"agent-build","type":"text","text":"### Agent 搭建\n\n像拼接「乐高」一样搭建 AI\n\n**基础节点：**\n- 触发器（接收消息/语音/图片）\n- 计算节点（大模型生文字/生图）\n- 插件/知识库/网页/JS代码\n- 动作（发送消息）\n\n**特色 IM 节点：**\n- 新加好友、标签操作\n- 发送秒回素材、组合消息\n- 拉群、转人工、AI SOP\n\n**模版：** 图纸\n- 可自由拼出想要的效果","x":-10,"y":444,"width":560,"height":480,"color":"2"},
+		{"id":"miaodong-why","type":"text","text":"# 为什么需要秒懂？--解决 **「AI 能力如何被交付」** 的问题：\n- AI 能力如何被定义\n- AI 能力如何被约束\n- AI 能力如何被评估\n- AI 能力如何持续进化","x":220,"y":80,"width":680,"height":240,"color":"4"}
+	],
+	"edges":[
+		{"id":"edge-4","fromNode":"miaodong-why","fromSide":"bottom","toNode":"agent-build","toSide":"top"},
+		{"id":"edge-5","fromNode":"miaodong-why","fromSide":"bottom","toNode":"knowledge-base","toSide":"top"},
+		{"id":"edge-6","fromNode":"agent-build","fromSide":"bottom","toNode":"memory-system","toSide":"top"},
+		{"id":"edge-7","fromNode":"knowledge-base","fromSide":"bottom","toNode":"test-center","toSide":"top"},
+		{"id":"edge-8","fromNode":"memory-system","fromSide":"bottom","toNode":"delivery-loop","toSide":"top","label":"定义能力"},
+		{"id":"edge-9","fromNode":"test-center","fromSide":"bottom","toNode":"optimize-center","toSide":"top"},
+		{"id":"edge-11","fromNode":"delivery-loop","fromSide":"right","toNode":"relationship","toSide":"left"}
+	]
+}
