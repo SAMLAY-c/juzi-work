@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"e1f2a3b4c5d6e7f8","type":"group","x":360,"y":160,"width":840,"height":1390,"color":"3","label":"面向内部沟通"},
+		{"id":"d5e6f7a8b9c0d1e2","type":"group","x":1360,"y":205,"width":800,"height":1395,"color":"1","label":"面向外部沟通"},
+		{"id":"b1c2d3e4f5a6b7c8","type":"group","x":-480,"y":160,"width":560,"height":1000,"color":"4","label":"沟通的核心"},
+		{"id":"e6f7a8b9c0d1e2f3","type":"text","text":"# 重要原则\n\n# 真诚 · 专业 · 承诺\n# 目的\n1. **正常推进项目**\n2. **方便整理复盘**","x":1390,"y":245,"width":690,"height":275},
+		{"id":"c4d5e6f7a8b9c0d1","type":"text","text":"## 工作同步要点\n\n### 中间节点确认\n- 功能是否ready\n- 客户方是否ready\n\n### 优先级不确认时及时询问\n\n### 工作冲突时及时同步\n\n### 进度回答模板\n1. **当前进度**：已完成的XX部分\n2. **预期完成**：预计XX时间交付\n3. **卡点说明**：是否有卡点/困难点\n4. **下一步动作**：后续将完成XX\n5. **变化同步**：如有变化及时沟通\n\n> 给出明确预期，方便对方规划","x":480,"y":910,"width":595,"height":517},
+		{"id":"a2b3c4d5e6f7a8b9","type":"text","text":"# 日报格式\n\n# 包含内容\n- **做了什么**\n- **TODO**\n  - 要做的内容\n  - 接下来的时间节点\n- **抄送相关的人**\n# Bad Case\n\"今日相关问题已经处理完毕\"\n> 缺少具体信息和下一步计划","x":395,"y":418,"width":400,"height":411},
+		{"id":"b3c4d5e6f7a8b9c0","type":"text","text":"## 进度延期\n\n### 必须包含\n- **原因**\n- **解决方案**\n- **预计下一个时间节点**\n\n### Bad Case\n在DDL时间点才通知：\"做不完了\"\n\n> 需要提前预警，给出解决方案","x":840,"y":418,"width":347,"height":348},
+		{"id":"f1a2b3c4d5e6f7a8","type":"text","text":"## 重要原则\n\n### 详细 · 及时 · 诚实\n\n### 目的\n1. **同步信息**\n2. **解决问题**","x":515,"y":184,"width":560,"height":223},
+		{"id":"a1b2c3d4e5f67890","type":"text","text":"# 如何沟通\n\n","x":688,"y":-32,"width":215,"height":65,"color":"5"},
+		{"id":"f7a8b9c0d1e2f3a4","type":"text","text":"## 讨论需求\n\n### Good Case 模板\n1. **现状说明**：当前是否支持该功能\n2. **解决方案**：如果支持如何实现，不支持如何替代\n3. **预期时间**：何时可以给到反馈\n\n### 示例\n\"我们当前还不支持视频识别功能。但如果您有需求，可以提供案例和期待结果，我们调研后给您报告。\n\n同时，demo验证可以先验证其他内容。\"\n\n### Bad Case\n\"我们现在不支持，可能以后会支持\"\n\n> 没有给出任何替代方案或预期","x":1390,"y":533,"width":690,"height":520},
+		{"id":"c1d2e3f4a5b6c7d8","type":"text","text":"## 沟通的三大核心\n\n### 1. 听\n听明白对方说了什么\n### 2. 讲\n确认对方明白你说了什么\n### 3. 其他\n- **及时性**\n- **符合SMART，给出预期**","x":-433,"y":189,"width":433,"height":435},
+		{"id":"b9c0d1e2f3a4b5c6","type":"text","text":"## Bug 反馈要点\n\n### 重点在同步信息\n\n### Good Case 格式\n- **企业**：XXX公司\n- **小组**：XXX小组\n- **机器人**：XXX\n- **问题**：详细描述\n- **截图**：完整截图\n\n### Bad Case\n\"这好像有个bug\" + 不完整截图\n\n> 缺少关键信息，难以定位问题","x":-445,"y":675,"width":457,"height":470},
+		{"id":"a8b9c0d1e2f3a4b5","type":"text","text":"# 处理问题\n\n# Good Case 模板\n1. **原因说明**：由于XX导致\n2. **解决方案**：做了XX优化\n3. **效果保证**：批量测试验证解决\n# 示例\n\"这个是由于XX原因导致的。我们针对问题做了XX优化，批量跑测试集后确保问题解决。您可以放心测试。\"\n# 关键\n给出明确原因和解决方案，让客户有信心","x":1390,"y":1120,"width":690,"height":454}
+	],
+	"edges":[
+		{"id":"e1a2b3c4d5e6f7a8","fromNode":"a1b2c3d4e5f67890","fromSide":"bottom","toNode":"b1c2d3e4f5a6b7c8","toSide":"top","color":"4"},
+		{"id":"e2b3c4d5e6f7a8b9","fromNode":"a1b2c3d4e5f67890","fromSide":"bottom","toNode":"e1f2a3b4c5d6e7f8","toSide":"top","color":"3"},
+		{"id":"e3c4d5e6f7a8b9c0","fromNode":"a1b2c3d4e5f67890","fromSide":"bottom","toNode":"d5e6f7a8b9c0d1e2","toSide":"top","color":"1"}
+	]
+}
