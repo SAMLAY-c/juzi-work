@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"d5e6f7a8b9c0d1e2","type":"group","x":1400,"y":98,"width":1100,"height":1160,"color":"6","label":"好的内容（NFAB模型）"},
+		{"id":"f1a2b3c4d5e6f7a8","type":"group","x":240,"y":215,"width":1020,"height":925,"color":"3","label":"好的形式"},
+		{"id":"b1c2d3e4f5a6b7c8","type":"group","x":-400,"y":303,"width":500,"height":750,"color":"4","label":"如何定义好的文档"},
+		{"id":"a2b3c4d5e6f7a8b9","type":"text","text":"## 什么样的形式算\"好\"\n\n### 1. 只看目录就能看懂\n- 带入用户视角\n- 降低理解成本\n### 2. 增加摘要\n- 说明需要几步达成目标\n- 每一步如何支持目标\n### 3. 增加背景信息\n- 默认客户不知道很多信息\n- 补充能力边界等背景","x":260,"y":255,"width":440,"height":460},
+		{"id":"e6f7a8b9c0d1e2f3","type":"text","text":"## NFAB 模型\n从用户角度一站式地解决其提出和**没有提出**的问题\n### N - Need（需求）\n挖掘用户的痛点\n### F - Feature（功能）\n具体是怎么解决的\n### A - Advantage（作用）\n解决了什么问题\n### B - Benefit（利益）\n最终效果\n> 如果明确受众只需要了解其中一部分，可省略其他部分","x":1485,"y":138,"width":870,"height":435},
+		{"id":"a8b9c0d1e2f3a4b5","type":"text","text":"## ✅ 好的产品文档示例\n\n### N（需求）\n> 过去在多个渠道只能传播同一个二维码，无法区分不同渠道来的用户，也无法针对不同渠道响应\n\n### A（作用）\n> 实现同一个员工可以区分不同用户从哪个渠道来，并做自动化响应和定向数据分析\n\n### F（功能）\n> 在句客宝后台按流程配置：第一步配置XXX，第二步配置XXX...\n\n### B（利益）\n> 单个员工服务新客户工作量减少80%、渠道获取准确率提升至100%、渠道数据溯源成本降至0","x":1980,"y":608,"width":490,"height":570},
+		{"id":"f7a8b9c0d1e2f3a4","type":"text","text":"## ❌ 差的产品文档示例\n\n> 我们有渠道二维码功能，在后台做一、二、三、四步的分别配置后就可以得到一个渠道二维码\n\n### 问题分析\n- 完全没有 N、A、B 的部分\n- F 的部分也不完全（只有基础操作）\n\n### 只适合极少极其聪明的用户\n- 已经知道痛点（需要做多渠道溯源）\n- 知道解决后的收益\n- 只差找到工具实现\n\n### 大部分用户需要\n- 为什么要用这个功能？\n- 能为我带来什么价值？\n- 具体怎么操作？","x":1430,"y":608,"width":490,"height":570},
+		{"id":"d1e2f3a4b5c6d7e8","type":"text","text":"## 生产视角的答案\n\n### 1. 好的形式\n- 让用户**愿意读下去**\n- 用户耐心有限\n- 需要在最短时间内判断\"有没有用\"\n\n### 2. 好的内容\n- 让用户**读得到答案**\n- 真正满足用户期待\n- 预料到用户所有问题\n\n### 用户阅读过程\n看目录 → 看前几段 → 快速扫全文 → 决定是否继续","x":-380,"y":353,"width":440,"height":500},
+		{"id":"b3c4d5e6f7a8b9c0","type":"text","text":"## 优化形式的方法\n\n### 4. 把非必做/必看的放到最后\n- 如功能清单\n- 提升顺序阅读体验\n### 5. 做好不同内容的分段/解耦\n- 两个逻辑上不直接相关的东西不应该连在一起\n**示例对比**\n❌ 原版本：技术原理和实现效果混在一起\n✅ 优化版本：\n> **技术原理**\n> 句客宝通过【商家自建应用】接口获取订单...\n> **实现效果**\n> 完成配置后，即可在【企微客户端】和【秒回聚合聊天】中查看...","x":750,"y":255,"width":440,"height":510},
+		{"id":"c4d5e6f7a8b9c0d1","type":"text","text":"## 形式优化的核心\n\n通过精心设计，让用户更直观地了解到信息，**愿意继续看细节**去找到他关心的答案\n# 关键点\n- 降低用户理解成本\n- 提升阅读体验\n- 快速定位有用信息","x":340,"y":800,"width":820,"height":270,"color":"1"},
+		{"id":"a1b2c3d4e5f6a7b8","type":"text","text":"# 如何写好文档\n\n## 让用户不依赖讲解就能了解全部信息","x":620,"y":-160,"width":540,"height":120,"color":"5"}
+	],
+	"edges":[
+		{"id":"e2b3c4d5e6f7a8b9","fromNode":"a1b2c3d4e5f6a7b8","fromSide":"bottom","toNode":"f1a2b3c4d5e6f7a8","toSide":"top","color":"3"},
+		{"id":"e3c4d5e6f7a8b9c0","fromNode":"a1b2c3d4e5f6a7b8","fromSide":"bottom","toNode":"d5e6f7a8b9c0d1e2","toSide":"top","color":"6"},
+		{"id":"e4d5e6f7a8b9c0d1","fromNode":"b1c2d3e4f5a6b7c8","fromSide":"right","toNode":"f1a2b3c4d5e6f7a8","toSide":"left","label":"形式"},
+		{"id":"e5e6f7a8b9c0d1e2","fromNode":"f1a2b3c4d5e6f7a8","fromSide":"right","toNode":"d5e6f7a8b9c0d1e2","toSide":"left","label":"内容"},
+		{"id":"e1a2b3c4d5e6f7a8","fromNode":"a1b2c3d4e5f6a7b8","fromSide":"bottom","toNode":"b1c2d3e4f5a6b7c8","toSide":"top","color":"4"},
+		{"id":"e62e80ffbd58b91c","fromNode":"b3c4d5e6f7a8b9c0","fromSide":"bottom","toNode":"c4d5e6f7a8b9c0d1","toSide":"top"}
+	]
+}
