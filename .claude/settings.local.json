@@ -15,7 +15,9 @@
       "Bash(git pull:*)",
       "Bash(git restore:*)",
       "Bash(git clone:*)",
-      "Bash(open:*)"
+      "Bash(open:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
     ]
   }
 }
