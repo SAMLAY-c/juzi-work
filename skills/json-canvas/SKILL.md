@@ -1,3 +1,10 @@
+这里是整合了你的色彩分配规则后的完整提示词。
+
+我将新的规则添加到了 **`## Colors`** 章节下的 **`### Semantic Color Usage`** 部分，并明确了“常规”内容应省略颜色属性（即使用默认灰色）。
+
+你可以直接复制以下完整内容：
+
+```markdown
 ---
 name: json-canvas
 description: Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.
@@ -255,6 +262,17 @@ The `canvasColor` type can be specified in two ways:
 | `"5"` | Cyan |
 | `"6"` | Purple |
 
+### Semantic Color Usage (Strict Rule)
+
+When applying colors to nodes, strictly adhere to the following semantic assignments. This ensures visual consistency and instant cognitive recognition:
+
+| Category | Meaning / Usage | Action | Preset / Value |
+| :--- | :--- | :--- | :--- |
+| **特别注意 (Special Attention)** | **Warnings, Exceptions, Danger**<br>Critical errors, "Do not do this", or highly important alerts. | Use **Red** | `"color": "1"` |
+| **重点 (Key Point)** | **Core Concepts, Highlights**<br>Main ideas, wisdom, or essential takeaways. | Use **Purple** (Preferred)<br>or **Orange** (Secondary) | `"color": "6"` (Purple)<br>`"color": "2"` (Orange) |
+| **TODO** | **Action Items**<br>Tasks, verification needed, or incomplete sections requiring user input. | Use **Green** | `"color": "4"` |
+| **常规 (Regular)** | **Context, Background, General Info**<br>Standard descriptions or supporting text that is not a priority. | **No Color** (Default Grey) | *Omit the `color` property* |
+
 Note: Specific color values for presets are intentionally undefined, allowing applications to use their own brand colors.
 
 ## Complete Examples
@@ -271,7 +289,8 @@ Note: Specific color values for presets are intentionally undefined, allowing ap
       "y": 0,
       "width": 300,
       "height": 150,
-      "text": "# Main Idea\n\nThis is the central concept."
+      "text": "# Main Idea\n\nThis is the central concept.",
+      "color": "6"
     },
     {
       "id": "1a2b3c4d5e6f7a8b",
@@ -289,7 +308,8 @@ Note: Specific color values for presets are intentionally undefined, allowing ap
       "y": 100,
       "width": 250,
       "height": 100,
-      "text": "## Supporting Point B\n\nMore details."
+      "text": "## Warning\n\nCheck constraints!",
+      "color": "1"
     }
   ],
   "edges": [
@@ -353,7 +373,8 @@ Note: Specific color values for presets are intentionally undefined, allowing ap
       "y": 50,
       "width": 260,
       "height": 80,
-      "text": "## Task 1\n\nImplement feature X"
+      "text": "## Task 1\n\nImplement feature X",
+      "color": "4"
     },
     {
       "id": "9c0d1e2f3a4b5c6d",
@@ -640,4 +661,4 @@ This format is a 16-character lowercase hex string (64-bit random value).
 
 - [JSON Canvas Spec 1.0](https://jsoncanvas.org/spec/1.0/)
 - [JSON Canvas GitHub](https://github.com/obsidianmd/jsoncanvas)
-
+```
