@@ -1,144 +1,21 @@
 {
-  "nodes": [
-    {
-      "id": "overview",
-      "type": "text",
-      "text": "# AI SDR 项目优化计划\n\n## 当前状态\n**中高完成度的 MVP 版本**\n\n骨架已搭建：\n接收 → 存储 → 回复 → 通知\n\n**核心工作重点**：\n不在流程图的连线上，而在于\"节点内的内功\"",
-      "x": 0,
-      "y": -200,
-      "width": 500,
-      "height": 300,
-      "color": "5"
-    },
-    {
-      "id": "focus-areas",
-      "type": "text",
-      "text": "# \"节点内的内功\"\n\n三大核心方向：\n\n1. **Prompt 的精细化调试**\n   - 对话策略优化\n   - 信息收集技巧\n   - 情绪识别能力\n\n2. **知识库的完善**\n   - 产品功能文档\n   - 行业解决方案\n   - 常见问题库\n\n3. **特定业务场景的规则补丁**\n   - 企微相关提问\n   - 报价流程\n   - 转人工条件",
-      "x": 600,
-      "y": -200,
-      "width": 500,
-      "height": 400,
-      "color": "6"
-    },
-    {
-      "id": "testing-group",
-      "type": "group",
-      "x": -600,
-      "y": 400,
-      "width": 1000,
-      "height": 700,
-      "color": "1",
-      "label": "测试与验证"
-    },
-    {
-      "id": "testing-problem",
-      "type": "text",
-      "text": "# 当前问题\n\n**测试现状**：\n❌ 测试是零散的\n❌ 缺乏标准\n❌ 无统一测试流程\n❌ 难以对比不同版本效果",
-      "x": -550,
-      "y": 460,
-      "width": 400,
-      "height": 250,
-      "color": "1"
-    },
-    {
-      "id": "testing-solution",
-      "type": "text",
-      "text": "# 解决方案：测试标准化\n\n## 1. Prompt PK 机制\n**研发团队各出一版**：\n- 佳瑞版本\n- 陈列版本\n- PE 版本\n\n**对比维度**：\n- 信息收集完整度\n- 对话自然度\n- 转化率\n\n## 2. 标准测试用例集\n**基于历史真实对话**：\n- 覆盖各种场景\n- 包含成功/失败案例\n- 标注预期结果\n\n## 3. 测试报告\n**产出内容**：\n- 各版本得分\n- 优劣分析\n- 改进建议",
-      "x": -100,
-      "y": 460,
-      "width": 450,
-      "height": 580,
-      "color": "3"
-    },
-    {
-      "id": "automation-group",
-      "type": "group",
-      "x": 500,
-      "y": 400,
-      "width": 900,
-      "height": 600,
-      "color": "2",
-      "label": "自动化设置"
-    },
-    {
-      "id": "automation-problem",
-      "type": "text",
-      "text": "# 当前问题\n\n**自动化未完全配置**：\n❌ 新加好友后自动通过\n❌ 自动欢迎语\n❌ 功能未完全开启",
-      "x": 550,
-      "y": 460,
-      "width": 350,
-      "height": 200,
-      "color": "1"
-    },
-    {
-      "id": "automation-solution",
-      "type": "text",
-      "text": "# 解决方案\n\n## 检查 Coze/工具配置\n\n**确保功能正常开启**：\n\n1. **自动通过好友**\n   - 检查开关状态\n   - 测试通过率\n\n2. **自动欢迎语**\n   - 配置欢迎话术\n   - 设置发送时机\n   - 测试送达率\n\n**验证方式**：\n- 用测试账号添加好友\n- 验证是否自动通过\n- 检查欢迎语是否发送",
-      "x": 950,
-      "y": 460,
-      "width": 400,
-      "height": 480,
-      "color": "4"
-    },
-    {
-      "id": "next-steps",
-      "type": "text",
-      "text": "# 下一阶段行动计划\n\n## 优先级排序\n\n**P0（立即执行）**：\n1. 建立标准测试用例集\n2. 配置自动化功能\n\n**P1（本周完成）**：\n1. 组织 Prompt PK\n2. 产出首份测试报告\n\n**P2（持续优化）**：\n1. 完善知识库\n2. 针对特定场景添加规则补丁\n3. 定期复盘和迭代",
-      "x": 1200,
-      "y": -200,
-      "width": 450,
-      "height": 400,
-      "color": "5"
-    }
-  ],
-  "edges": [
-    {
-      "id": "edge-1",
-      "fromNode": "overview",
-      "fromSide": "right",
-      "toNode": "focus-areas",
-      "toSide": "left",
-      "label": "核心方向"
-    },
-    {
-      "id": "edge-2",
-      "fromNode": "overview",
-      "fromSide": "bottom",
-      "toNode": "testing-group",
-      "toSide": "top",
-      "label": "需要验证"
-    },
-    {
-      "id": "edge-3",
-      "fromNode": "overview",
-      "fromSide": "bottom",
-      "toNode": "automation-group",
-      "toSide": "top",
-      "label": "需要配置"
-    },
-    {
-      "id": "edge-4",
-      "fromNode": "testing-problem",
-      "fromSide": "right",
-      "toNode": "testing-solution",
-      "toSide": "left",
-      "label": "解决方案"
-    },
-    {
-      "id": "edge-5",
-      "fromNode": "automation-problem",
-      "fromSide": "right",
-      "toNode": "automation-solution",
-      "toSide": "left",
-      "label": "解决方案"
-    },
-    {
-      "id": "edge-6",
-      "fromNode": "focus-areas",
-      "fromSide": "right",
-      "toNode": "next-steps",
-      "toSide": "left",
-      "label": "行动计划"
-    }
-  ]
+	"nodes":[
+		{"id":"overview","type":"text","text":"# AI SDR 项目优化计划\n\n## 当前状态\n**中高完成度的 MVP 版本**\n\n骨架已搭建：\n接收 → 存储 → 回复 → 通知\n\n**核心工作重点**：\n不在流程图的连线上，而在于\"节点内的内功\"","x":0,"y":-200,"width":500,"height":300,"color":"5"},
+		{"id":"focus-areas","type":"text","text":"# \"节点内的内功\"\n\n三大核心方向：\n\n1. **Prompt 的精细化调试**\n   - 对话策略优化\n   - 信息收集技巧\n   - 情绪识别能力\n\n2. **知识库的完善**\n   - 产品功能文档\n   - 行业解决方案\n   - 常见问题库\n\n3. **特定业务场景的规则补丁**\n   - 企微相关提问\n   - 报价流程\n   - 转人工条件","x":600,"y":-200,"width":500,"height":400,"color":"6"},
+		{"id":"testing-group","type":"group","x":-600,"y":400,"width":1000,"height":700,"color":"1","label":"测试与验证"},
+		{"id":"testing-problem","type":"text","text":"# 当前问题\n\n**测试现状**：\n❌ 测试是零散的\n❌ 缺乏标准\n❌ 无统一测试流程\n❌ 难以对比不同版本效果","x":-550,"y":460,"width":400,"height":250,"color":"1"},
+		{"id":"testing-solution","type":"text","text":"# 解决方案：测试标准化\n\n## 1. Prompt PK 机制\n**研发团队各出一版**：\n- 佳瑞版本\n- 陈列版本\n- PE 版本\n\n**对比维度**：\n- 信息收集完整度\n- 对话自然度\n- 转化率\n\n## 2. 标准测试用例集\n**基于历史真实对话**：\n- 覆盖各种场景\n- 包含成功/失败案例\n- 标注预期结果\n\n## 3. 测试报告\n**产出内容**：\n- 各版本得分\n- 优劣分析\n- 改进建议","x":-100,"y":460,"width":450,"height":580,"color":"3"},
+		{"id":"automation-group","type":"group","x":500,"y":400,"width":900,"height":600,"color":"2","label":"自动化设置"},
+		{"id":"automation-problem","type":"text","text":"# 当前问题\n\n**自动化未完全配置**：\n❌ 新加好友后自动通过\n❌ 自动欢迎语\n❌ 功能未完全开启","x":550,"y":460,"width":350,"height":200,"color":"1"},
+		{"id":"automation-solution","type":"text","text":"# 解决方案\n\n## 检查 Coze/工具配置\n\n**确保功能正常开启**：\n\n1. **自动通过好友**\n   - 检查开关状态\n   - 测试通过率\n\n2. **自动欢迎语**\n   - 配置欢迎话术\n   - 设置发送时机\n   - 测试送达率\n\n**验证方式**：\n- 用测试账号添加好友\n- 验证是否自动通过\n- 检查欢迎语是否发送","x":950,"y":460,"width":400,"height":480,"color":"4"},
+		{"id":"next-steps","type":"text","text":"# 下一阶段行动计划\n\n## 优先级排序\n\n**P0（立即执行）**：\n1. 建立标准测试用例集\n2. 配置自动化功能\n\n**P1（本周完成）**：\n1. 组织 Prompt PK\n2. 产出首份测试报告\n\n**P2（持续优化）**：\n1. 完善知识库\n2. 针对特定场景添加规则补丁\n3. 定期复盘和迭代","x":1200,"y":-200,"width":450,"height":400,"color":"5"}
+	],
+	"edges":[
+		{"id":"edge-1","fromNode":"overview","fromSide":"right","toNode":"focus-areas","toSide":"left","label":"核心方向"},
+		{"id":"edge-2","fromNode":"overview","fromSide":"bottom","toNode":"testing-group","toSide":"top","label":"需要验证"},
+		{"id":"edge-3","fromNode":"overview","fromSide":"bottom","toNode":"automation-group","toSide":"top","label":"需要配置"},
+		{"id":"edge-4","fromNode":"testing-problem","fromSide":"right","toNode":"testing-solution","toSide":"left","label":"解决方案"},
+		{"id":"edge-5","fromNode":"automation-problem","fromSide":"right","toNode":"automation-solution","toSide":"left","label":"解决方案"},
+		{"id":"edge-6","fromNode":"focus-areas","fromSide":"right","toNode":"next-steps","toSide":"left","label":"行动计划"}
+	]
 }
