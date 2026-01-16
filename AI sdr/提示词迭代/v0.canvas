@@ -15,7 +15,8 @@
 		{"id":"info-filter","type":"text","text":"- `用户最新消息`：【{{text}}】\n\n- `历史消息`：【{{history}}】\n\n<prompt>\n  <context>\n    你是一名高级文本内容审核与分类专家，专注于识别聊天对话中的广告内容与垃圾信息。你的任务是根据提供的历史消息和用户最新消息，结合预设的分类规则，准确判断该消息是否属于广告或垃圾信息。\n    - 输入数据包含 `历史消息` 和 `用户最新消息`。\n  </context>\n\n  <instruction>\n    1. 解析 `历史消息` 和 `用户最新消息` 的文本内容。\n    2. 重点分析 `用户最新消息` 是否包含推广、营销、引流或批量发送的特征。\n    3. 优先处理排除性与强匹配规则，并根据最符合的规则返回对应类别。\n    4. 根据以下分类规则进行匹配：\n      4.1. \"广告/垃圾信息\"：\n        - 明显的商品或服务推广（如课程、投资、代运营、软件、社群等）\n        - 夸大收益或诱导行为（如\"稳赚不赔\"\"限时优惠\"\"免费领取\"）\n        - 重复、模板化、与上下文无关的推广内容\n        - 疑似群发、刷屏或营销机器人行为\n      4.2. \"正常对话\"：\n        - 与上下文相关的正常咨询、提问或交流\n        - 不包含任何推广、引流或营销意图的内容\n        - 个人表达观点、情绪或进行技术/业务讨论\n  </instruction>\n\n  <output_format>\n    {\n      \"name\": \"{类别名称}\"\n    }\n  </output_format>\n\n  <note>\n    1. 当无法明确判断时，默认返回 \"正常对话\"。\n    2. 回复必须为 JSON 对象，且仅包含键 \"name\"。\n    3. 不输出分析或推理过程，直接返回分类结果。\n  </note>\n</prompt>","x":-1360,"y":-1140,"width":540,"height":740},
 		{"id":"transfer-conditions","type":"text","text":"# 转人工触发条件\n\n## 明确要求转人工\n**触发场景**：\n- 直接说\"转人工\"\"人工客服\"\n- 要求\"找你们领导/负责人\"\n- 表示\"不想跟机器人说话\"\n- 要求\"投诉\"或\"找人工处理\"\n\n## 迟迟没解决问题\n**判断标准**：\n- 同一问题反复讨论超过 5-6 轮\n- 客户表示\"还是没解决问题\"\n- 客户表达\"转圈圈\"\"说不清楚\"\n- 连续 3 次以上表示不理解或不满\n- 对话陷入僵局，无法继续推进\n\n**注意**：转人工前仍需收集基础信息（手机号、公司、背景）","x":2540,"y":525,"width":580,"height":380,"color":"3"},
 		{"id":"spam-detection","type":"text","text":"# 广告/垃圾信息识别\n\n## 识别标准\n**明显推广**：\n- 商品或服务推广（课程、投资、代运营、软件、社群等）\n- 夸大收益或诱导行为\n- \"稳赚不赔\"\"限时优惠\"\"免费领取\"\n**模板化内容**：\n- 重复、模板化的推广文案\n- 与上下文无关的内容\n- 疑似批量群发消息\n**机器人特征**：\n- 刷屏行为\n- 营销机器人模式\n- 无视对话内容的连续推广\n## 典型示例\n❌ \"加微信xxx领取免费课程\"\n❌ \"投资理财，月收益50%\"\n❌ \"专业代运营，提升销量10倍\"\n❌ \"限时优惠，仅限今日！\"","x":-1360,"y":-335,"width":540,"height":690,"color":"1"},
-		{"id":"normal-conversation","type":"text","text":"# 正常对话识别\n\n## 识别标准\n\n**上下文相关**：\n- 与当前对话相关的正常咨询\n- 针对产品/服务的真实提问\n- 符合对话流程的交流\n\n**无营销意图**：\n- 不包含推广、引流内容\n- 纯粹的咨询或讨论\n- 真实的业务需求表达\n\n**个人表达**：\n- 观点、情绪表达\n- 技术/业务讨论\n- 正常的用户反馈\n\n## 典型示例\n\n✓ \"你们这个产品怎么收费？\"\n\n✓ \"我想了解一下你们的\"\n\n✓ \"这个功能在什么版本有？\"\n\n✓ \"我遇到一个问题，能帮我看吗？\"","x":-780,"y":-335,"width":540,"height":735,"color":"4"}
+		{"id":"normal-conversation","type":"text","text":"# 正常对话识别\n\n## 识别标准\n\n**上下文相关**：\n- 与当前对话相关的正常咨询\n- 针对产品/服务的真实提问\n- 符合对话流程的交流\n\n**无营销意图**：\n- 不包含推广、引流内容\n- 纯粹的咨询或讨论\n- 真实的业务需求表达\n\n**个人表达**：\n- 观点、情绪表达\n- 技术/业务讨论\n- 正常的用户反馈\n\n## 典型示例\n\n✓ \"你们这个产品怎么收费？\"\n\n✓ \"我想了解一下你们的\"\n\n✓ \"这个功能在什么版本有？\"\n\n✓ \"我遇到一个问题，能帮我看吗？\"","x":-780,"y":-335,"width":540,"height":735,"color":"4"},
+		{"id":"78ae016277b46d53","x":-1221,"y":652,"width":250,"height":60,"color":"1","type":"text","text":"什么处理呢"}
 	],
 	"edges":[
 		{"id":"edge-1","fromNode":"core-task","fromSide":"left","toNode":"info-collection","toSide":"right","label":"核心依据"},
@@ -23,6 +24,7 @@
 		{"id":"edge-3","fromNode":"core-task","fromSide":"top","toNode":"forbidden-promises","toSide":"bottom","label":"边界约束"},
 		{"id":"edge-4","fromNode":"forbidden-promises","fromSide":"right","toNode":"forbidden-behaviors","toSide":"left"},
 		{"id":"edge-5","fromNode":"info-collection","fromSide":"bottom","toNode":"collection-strategy","toSide":"top","label":"具体执行"},
-		{"id":"edge-6","fromNode":"core-task","fromSide":"bottom","toNode":"special-situations","toSide":"top","label":"实战应对"}
+		{"id":"edge-6","fromNode":"core-task","fromSide":"bottom","toNode":"special-situations","toSide":"top","label":"实战应对"},
+		{"id":"d8bb0617a71d0d1f","fromNode":"spam-detection","fromSide":"bottom","toNode":"78ae016277b46d53","toSide":"top"}
 	]
 }
