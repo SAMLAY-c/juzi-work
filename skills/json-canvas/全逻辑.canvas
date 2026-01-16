@@ -1,0 +1,392 @@
+{
+  "nodes": [
+    {
+      "id": "a1b2c3d4e5f6a7b8",
+      "type": "group",
+      "x": 50,
+      "y": -50,
+      "width": 900,
+      "height": 350,
+      "label": "第一阶段：接入与初始化",
+      "color": "5"
+    },
+    {
+      "id": "b1c2d3e4f5a6b7c8",
+      "type": "text",
+      "x": 100,
+      "y": 20,
+      "width": 180,
+      "height": 100,
+      "text": "### 多渠道触发\n\n- 接收语音消息\n- 接收文本消息\n- 智能体发送消息\n- 新加好友"
+    },
+    {
+      "id": "c1d2e3f4a5b6c7d8",
+      "type": "text",
+      "x": 100,
+      "y": 180,
+      "width": 180,
+      "height": 80,
+      "text": "### 新加好友\n\n发送欢迎语\n引导用户开始对话"
+    },
+    {
+      "id": "d1e2f3a4b5c6d7e8",
+      "type": "text",
+      "x": 350,
+      "y": 20,
+      "width": 180,
+      "height": 80,
+      "text": "### JS 统一触发\n\n将不同格式输入转化为统一变量格式"
+    },
+    {
+      "id": "e1f2a3b4c5d6e7f8",
+      "type": "text",
+      "x": 600,
+      "y": 20,
+      "width": 180,
+      "height": 100,
+      "text": "### 消息过滤\n\nAI模型: `doubao-seed-1.8`\n识别恶意内容/垃圾广告"
+    },
+    {
+      "id": "f1a2b3c4d5e6f7a8",
+      "type": "text",
+      "x": 600,
+      "y": 180,
+      "width": 180,
+      "height": 80,
+      "text": "### 规则中心\n\n根据过滤结果进行分支处理"
+    },
+    {
+      "id": "a2b3c4d5e6f7a8b9",
+      "type": "group",
+      "x": 50,
+      "y": 350,
+      "width": 900,
+      "height": 280,
+      "label": "第二阶段：信息提取与意图判断",
+      "color": "5"
+    },
+    {
+      "id": "b2c3d4e5f6a7b8c9",
+      "type": "text",
+      "x": 100,
+      "y": 400,
+      "width": 200,
+      "height": 150,
+      "text": "### 信息收集\n\nAI模型: `doubao-seed-1.6-flash`\n\n提取关键信息：\n- 资料需求\n- 价格咨询\n- 其他问题\n\n输出结构化 `information`"
+    },
+    {
+      "id": "c2d3e4f5a6b7c8d9",
+      "type": "text",
+      "x": 380,
+      "y": 420,
+      "width": 180,
+      "height": 100,
+      "text": "### 分流处理\n\n**路径A**: 查知识库\n**路径B**: 人工介入\n**路径C**: 数据处理",
+      "color": "6"
+    },
+    {
+      "id": "a3b4c5d6e7f8a9b0",
+      "type": "group",
+      "x": 1000,
+      "y": -50,
+      "width": 750,
+      "height": 350,
+      "label": "第三阶段：知识库问答",
+      "color": "5"
+    },
+    {
+      "id": "b3c4d5e6f7a8b9c0",
+      "type": "text",
+      "x": 1050,
+      "y": 20,
+      "width": 200,
+      "height": 80,
+      "text": "### 变量赋值\n\n提取关键搜索词并赋值给变量"
+    },
+    {
+      "id": "c3d4e5f6a7b8c9d0",
+      "type": "text",
+      "x": 1050,
+      "y": 140,
+      "width": 250,
+      "height": 120,
+      "text": "### 查询文本知识库\n\n知识库: `tg-AI-SDR`\n- 查询召回数量: 10\n- 查询阈值: 20%\n\n在 `MergedText` 中检索"
+    },
+    {
+      "id": "d3e4f5a6b7c8d9e0",
+      "type": "text",
+      "x": 1050,
+      "y": 290,
+      "width": 250,
+      "height": 100,
+      "text": "### 大模型生成回复\n\nAI模型: `doubao-seed-1.6-flash`\n\n输入: 用户问题 + 知识库内容\n输出: 自然语言回复"
+    },
+    {
+      "id": "e3f4a5b6c7d8e9f0",
+      "type": "text",
+      "x": 1400,
+      "y": 140,
+      "width": 200,
+      "height": 80,
+      "text": "### 发送文本消息\n\n将生成的答案 `{{answ}}` 发送给用户"
+    },
+    {
+      "id": "a4b5c6d7e8f9a0b1",
+      "type": "group",
+      "x": 1000,
+      "y": 350,
+      "width": 750,
+      "height": 400,
+      "label": "第四阶段：人工介入与飞书通知",
+      "color": "5"
+    },
+    {
+      "id": "b4c5d6e7f8a9b0c1",
+      "type": "text",
+      "x": 1050,
+      "y": 400,
+      "width": 200,
+      "height": 80,
+      "text": "### 群内人工通知\n\nAI判断是否需要真人介入"
+    },
+    {
+      "id": "c4d5e6f7a8b9c0d1",
+      "type": "text",
+      "x": 1050,
+      "y": 520,
+      "width": 200,
+      "height": 80,
+      "text": "### 规则中心\n\n判断是否为\n\"飞书申请人工介入\""
+    },
+    {
+      "id": "d4e5f6a7b8c9d0e1",
+      "type": "text",
+      "x": 1320,
+      "y": 400,
+      "width": 180,
+      "height": 80,
+      "text": "### 延迟推送飞书\n\n防止消息轰炸，设置缓冲"
+    },
+    {
+      "id": "e4f5a6b7c8d9e0f1",
+      "type": "text",
+      "x": 1320,
+      "y": 520,
+      "width": 180,
+      "height": 80,
+      "text": "### JS代码块\n\n处理要发送给飞书的数据格式"
+    },
+    {
+      "id": "f4a5b6c7d8e9f0a1",
+      "type": "text",
+      "x": 1550,
+      "y": 400,
+      "width": 180,
+      "height": 150,
+      "text": "### 规则中心\n\n**用户分层**:\n- 非真实用户 → 过滤\n- 信息足且未推送\n- 信息不足 → 继续追问"
+    },
+    {
+      "id": "a5b6c7d8e9f0a1b2",
+      "type": "text",
+      "x": 1550,
+      "y": 600,
+      "width": 180,
+      "height": 80,
+      "text": "### 发送飞书卡片\n\n推送用户摘要、联系方式到飞书群",
+      "color": "6"
+    },
+    {
+      "id": "b5c6d7e8f9a0b1c2",
+      "type": "group",
+      "x": 50,
+      "y": 680,
+      "width": 900,
+      "height": 350,
+      "label": "第五阶段：数据管理与插件操作",
+      "color": "5"
+    },
+    {
+      "id": "c5d6e7f8a9b0c1d2",
+      "type": "text",
+      "x": 100,
+      "y": 730,
+      "width": 200,
+      "height": 80,
+      "text": "### 插件应用\n\n连接外部数据库：\n- 飞书多维表格\n- MySQL\n- CRM系统"
+    },
+    {
+      "id": "d5e6f7a8b9c0d1e2",
+      "type": "text",
+      "x": 100,
+      "y": 860,
+      "width": 200,
+      "height": 120,
+      "text": "### 逻辑判断\n\n**查询分支**:\n- 查询库里是否有用户\n- 数据不存在 → 新增\n- 数据已存在 → 更新\n\n**测试分支**:\n- 不更新数据（调试用）"
+    },
+    {
+      "id": "e5f6a7b8c9d0e1f2",
+      "type": "text",
+      "x": 380,
+      "y": 750,
+      "width": 200,
+      "height": 150,
+      "text": "### 数据操作\n\n**新增操作**:\n录入新用户信息\n\n**更新操作**:\n- 更新对话时间\n- 更新意向等级\n- 同步最新信息",
+      "color": "6"
+    },
+    {
+      "id": "f5a6b7c8d9e0f1a2",
+      "type": "text",
+      "x": 650,
+      "y": 830,
+      "width": 250,
+      "height": 150,
+      "text": "### 核心价值\n\n这是一个**\"人机耦合\"**的销售获客机器人\n\n1. **接待**: 自动解决80%常规咨询\n2. **清洗**: 过滤垃圾信息\n3. **捕获**: 识别高意向客户\n4. **记录**: 自动录入数据库\n5. **呼叫**: 飞书通知销售介入",
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge1",
+      "fromNode": "b1c2d3e4f5a6b7c8",
+      "fromSide": "right",
+      "toNode": "d1e2f3a4b5c6d7e8",
+      "toSide": "left"
+    },
+    {
+      "id": "edge2",
+      "fromNode": "b1c2d3e4f5a6b7c8",
+      "fromSide": "bottom",
+      "toNode": "c1d2e3f4a5b6c7d8",
+      "toSide": "top"
+    },
+    {
+      "id": "edge3",
+      "fromNode": "d1e2f3a4b5c6d7e8",
+      "fromSide": "right",
+      "toNode": "e1f2a3b4c5d6e7f8",
+      "toSide": "left"
+    },
+    {
+      "id": "edge4",
+      "fromNode": "e1f2a3b4c5d6e7f8",
+      "fromSide": "bottom",
+      "toNode": "f1a2b3c4d5e6f7a8",
+      "toSide": "top"
+    },
+    {
+      "id": "edge5",
+      "fromNode": "f1a2b3c4d5e6f7a8",
+      "fromSide": "bottom",
+      "toNode": "b2c3d4e5f6a7b8c9",
+      "toSide": "top",
+      "label": "有效信息"
+    },
+    {
+      "id": "edge6",
+      "fromNode": "b2c3d4e5f6a7b8c9",
+      "fromSide": "right",
+      "toNode": "c2d3e4f5a6b7c8d9",
+      "toSide": "left"
+    },
+    {
+      "id": "edge7",
+      "fromNode": "c2d3e4f5a6b7c8d9",
+      "fromSide": "right",
+      "toNode": "b3c4d5e6f7a8b9c0",
+      "toSide": "left",
+      "label": "路径A: 知识库",
+      "color": "4"
+    },
+    {
+      "id": "edge8",
+      "fromNode": "c2d3e4f5a6b7c8d9",
+      "fromSide": "bottom",
+      "toNode": "b4c5d6e7f8a9b0c1",
+      "toSide": "top",
+      "label": "路径B: 人工",
+      "color": "6"
+    },
+    {
+      "id": "edge9",
+      "fromNode": "c2d3e4f5a6b7c8d9",
+      "fromSide": "left",
+      "toNode": "c5d6e7f8a9b0c1d2",
+      "toSide": "top",
+      "label": "路径C: 数据"
+    },
+    {
+      "id": "edge10",
+      "fromNode": "b3c4d5e6f7a8b9c0",
+      "fromSide": "bottom",
+      "toNode": "c3d4e5f6a7b8c9d0",
+      "toSide": "top"
+    },
+    {
+      "id": "edge11",
+      "fromNode": "c3d4e5f6a7b8c9d0",
+      "fromSide": "bottom",
+      "toNode": "d3e4f5a6b7c8d9e0",
+      "toSide": "top"
+    },
+    {
+      "id": "edge12",
+      "fromNode": "d3e4f5a6b7c8d9e0",
+      "fromSide": "right",
+      "toNode": "e3f4a5b6c7d8e9f0",
+      "toSide": "left"
+    },
+    {
+      "id": "edge13",
+      "fromNode": "b4c5d6e7f8a9b0c1",
+      "fromSide": "bottom",
+      "toNode": "c4d5e6f7a8b9c0d1",
+      "toSide": "top"
+    },
+    {
+      "id": "edge14",
+      "fromNode": "c4d5e6f7a8b9c0d1",
+      "fromSide": "right",
+      "toNode": "d4e5f6a7b8c9d0e1",
+      "toSide": "left",
+      "label": "需要介入",
+      "color": "4"
+    },
+    {
+      "id": "edge15",
+      "fromNode": "d4e5f6a7b8c9d0e1",
+      "fromSide": "bottom",
+      "toNode": "e4f5a6b7c8d9e0f1",
+      "toSide": "top"
+    },
+    {
+      "id": "edge16",
+      "fromNode": "e4f5a6b7c8d9e0f1",
+      "fromSide": "right",
+      "toNode": "f4a5b6c7d8e9f0a1",
+      "toSide": "left"
+    },
+    {
+      "id": "edge17",
+      "fromNode": "f4a5b6c7d8e9f0a1",
+      "fromSide": "bottom",
+      "toNode": "a5b6c7d8e9f0a1b2",
+      "toSide": "top",
+      "label": "信息完整",
+      "color": "4"
+    },
+    {
+      "id": "edge18",
+      "fromNode": "c5d6e7f8a9b0c1d2",
+      "fromSide": "bottom",
+      "toNode": "d5e6f7a8b9c0d1e2",
+      "toSide": "top"
+    },
+    {
+      "id": "edge19",
+      "fromNode": "d5e6f7a8b9c0d1e2",
+      "fromSide": "right",
+      "toNode": "e5f6a7b8c9d0e1f2",
+      "toSide": "left"
+    }
+  ]
+}
