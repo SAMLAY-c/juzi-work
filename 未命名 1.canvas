@@ -16,8 +16,8 @@
 		{"id":"592a22a1b0ab7c70","type":"text","text":"同一触发【】","x":-1100,"y":294,"width":250,"height":60},
 		{"id":"6a321d14b87f12f3","type":"text","text":"分流","x":-600,"y":309,"width":160,"height":60},
 		{"id":"d61db7c9ee71bb14","type":"text","text":"没有就判断需不需要转人工","x":269,"y":675,"width":160,"height":60,"color":"4"},
-		{"id":"25390aa528cc7fd3","type":"text","text":"推送新的表格","x":475,"y":780,"width":250,"height":60},
-		{"id":"278e2ad1cd087213","x":475,"y":615,"width":250,"height":60,"type":"text","text":"发送文本"}
+		{"id":"278e2ad1cd087213","x":475,"y":615,"width":250,"height":60,"type":"text","text":"发送文本"},
+		{"id":"25390aa528cc7fd3","type":"text","text":"推送新的表格","x":475,"y":760,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"56499914565dde0f","fromNode":"6a321d14b87f12f3","fromSide":"right","toNode":"dd5945ff309085ff","toSide":"left"},
