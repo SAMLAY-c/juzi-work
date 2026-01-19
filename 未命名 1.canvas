@@ -1,8 +1,9 @@
 {
 	"nodes":[
+		{"id":"58c2bfa10ce5dedc","type":"group","x":220,"y":220,"width":821,"height":109,"color":"2","label":"推送逻辑"},
 		{"id":"64a01ebc28d8dd8f","type":"text","text":"消息过滤","x":-780,"y":304,"width":146,"height":60},
 		{"id":"6a321d14b87f12f3","type":"text","text":"分流","x":-600,"y":304,"width":100,"height":55},
-		{"id":"592a22a1b0ab7c70","type":"text","text":"同一触发","x":-940,"y":304,"width":120,"height":55},
+		{"id":"592a22a1b0ab7c70","type":"text","text":"统一触发","x":-940,"y":304,"width":120,"height":55},
 		{"id":"dd5945ff309085ff","type":"text","text":"垃圾消息","x":-426,"y":185,"width":140,"height":50},
 		{"id":"cb2d3a61d9c5c31f","type":"text","text":"sdr 赋值+线索表推送","x":-234,"y":183,"width":234,"height":52},
 		{"id":"ceefd43f940f55c5","type":"text","text":"企业微信","x":-426,"y":307,"width":115,"height":50},
@@ -10,13 +11,15 @@
 		{"id":"cf79cb2af32d5e13","type":"text","text":"线索表推送","x":-250,"y":247,"width":160,"height":57},
 		{"id":"1f99ba12218b592f","type":"text","text":"企微表推送","x":-253,"y":332,"width":163,"height":50},
 		{"id":"f34eacfd3efb1119","type":"text","text":"信息收集=json\n","x":-250,"y":409,"width":162,"height":50},
-		{"id":"4a5f4a1b8738746e","type":"text","text":"更新飞书表格","x":-51,"y":364,"width":160,"height":55},
-		{"id":"c2e66f6de5418cbd","type":"text","text":"大模型对客户回应","x":-51,"y":459,"width":211,"height":50},
-		{"id":"fa570c1a6f685396","type":"text","text":"是否有转过","x":-51,"y":555,"width":160,"height":60},
-		{"id":"967d731d4911a849","type":"text","text":"判断是否信息足够","x":160,"y":359,"width":250,"height":60},
-		{"id":"d61db7c9ee71bb14","type":"text","text":"没有就判断需不需要转人工","x":160,"y":555,"width":160,"height":60,"color":"4"},
-		{"id":"278e2ad1cd087213","type":"text","text":"发送文本","x":410,"y":555,"width":250,"height":60},
-		{"id":"ba4336fbfd102b29","type":"text","text":"群聊推送","x":480,"y":362,"width":250,"height":60}
+		{"id":"fa570c1a6f685396","type":"text","text":"是否有转过","x":0,"y":660,"width":160,"height":60},
+		{"id":"d61db7c9ee71bb14","type":"text","text":"没有就判断需不需要转人工","x":211,"y":670,"width":180,"height":50,"color":"4"},
+		{"id":"4a5f4a1b8738746e","type":"text","text":"更新飞书表格","x":240,"y":245,"width":160,"height":55},
+		{"id":"967d731d4911a849","type":"text","text":"判断是否信息足够","x":451,"y":240,"width":250,"height":60},
+		{"id":"ba4336fbfd102b29","type":"text","text":"群聊推送","x":760,"y":240,"width":250,"height":60},
+		{"id":"278e2ad1cd087213","type":"text","text":"发送文本","x":480,"y":653,"width":250,"height":75},
+		{"id":"c2e66f6de5418cbd","type":"text","text":"大模型对客户回应","x":471,"y":382,"width":211,"height":50},
+		{"id":"fbbf14d248346a30","x":35,"y":445,"width":250,"height":60,"type":"text","text":"js逻辑"},
+		{"id":"829cc57ba9eef709","x":480,"y":505,"width":250,"height":60,"type":"text","text":""}
 	],
 	"edges":[
 		{"id":"56499914565dde0f","fromNode":"6a321d14b87f12f3","fromSide":"right","toNode":"dd5945ff309085ff","toSide":"left"},
@@ -25,7 +28,6 @@
 		{"id":"0c1121c1b165618e","fromNode":"592a22a1b0ab7c70","fromSide":"right","toNode":"64a01ebc28d8dd8f","toSide":"left"},
 		{"id":"27a4b8d91596236f","fromNode":"b68a285b8c8fc5da","fromSide":"right","toNode":"f34eacfd3efb1119","toSide":"left"},
 		{"id":"b8abd74e63f7175c","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"4a5f4a1b8738746e","toSide":"left"},
-		{"id":"84a9a2908adf111e","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"c2e66f6de5418cbd","toSide":"left"},
 		{"id":"f84e3f7967554558","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"fa570c1a6f685396","toSide":"left"},
 		{"id":"499cf606fe1cbcda","fromNode":"fa570c1a6f685396","fromSide":"right","toNode":"d61db7c9ee71bb14","toSide":"left"},
 		{"id":"31104298178eceac","fromNode":"64a01ebc28d8dd8f","fromSide":"right","toNode":"6a321d14b87f12f3","toSide":"left"},
@@ -34,6 +36,9 @@
 		{"id":"4162cbb36ef11c0e","fromNode":"ceefd43f940f55c5","fromSide":"right","toNode":"cf79cb2af32d5e13","toSide":"left"},
 		{"id":"4bbe6682b14e63cd","fromNode":"6a321d14b87f12f3","fromSide":"right","toNode":"ceefd43f940f55c5","toSide":"left"},
 		{"id":"e9b69aff68577267","fromNode":"ceefd43f940f55c5","fromSide":"right","toNode":"1f99ba12218b592f","toSide":"left"},
-		{"id":"950f20f37b1e4720","fromNode":"d61db7c9ee71bb14","fromSide":"right","toNode":"278e2ad1cd087213","toSide":"left"}
+		{"id":"950f20f37b1e4720","fromNode":"d61db7c9ee71bb14","fromSide":"right","toNode":"278e2ad1cd087213","toSide":"left"},
+		{"id":"8d46fae4ac94cbd8","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"fbbf14d248346a30","toSide":"left"},
+		{"id":"76c54d3749476077","fromNode":"fbbf14d248346a30","fromSide":"right","toNode":"c2e66f6de5418cbd","toSide":"left","label":"可以送"},
+		{"id":"5d83dab57bd342a5","fromNode":"fbbf14d248346a30","fromSide":"right","toNode":"829cc57ba9eef709","toSide":"left","label":"不可以送"}
 	]
 }
