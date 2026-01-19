@@ -1,0 +1,40 @@
+{
+	"nodes":[
+		{"id":"64a01ebc28d8dd8f","type":"text","text":"消息过滤","x":-780,"y":304,"width":146,"height":60},
+		{"id":"dd5945ff309085ff","type":"text","text":"垃圾消息","x":-401,"y":185,"width":140,"height":50},
+		{"id":"cb2d3a61d9c5c31f","type":"text","text":"sdr 赋值","x":-213,"y":180,"width":125,"height":55},
+		{"id":"ceefd43f940f55c5","type":"text","text":"企业微信","x":-401,"y":309,"width":115,"height":50},
+		{"id":"b68a285b8c8fc5da","type":"text","text":"正常","x":-401,"y":425,"width":115,"height":50},
+		{"id":"cf79cb2af32d5e13","type":"text","text":"1.","x":-169,"y":274,"width":120,"height":60},
+		{"id":"1f99ba12218b592f","type":"text","text":"企业微信","x":-190,"y":359,"width":163,"height":50},
+		{"id":"f34eacfd3efb1119","type":"text","text":"信息收集=json\n","x":-189,"y":490,"width":162,"height":50},
+		{"id":"4a5f4a1b8738746e","type":"text","text":"更新飞书表格","x":109,"y":354,"width":160,"height":55},
+		{"id":"fa570c1a6f685396","type":"text","text":"是否有转过","x":74,"y":675,"width":160,"height":60},
+		{"id":"c2e66f6de5418cbd","type":"text","text":"大模型对客户回应","x":74,"y":515,"width":250,"height":60},
+		{"id":"967d731d4911a849","type":"text","text":"判断是否信息足够","x":314,"y":420,"width":250,"height":60},
+		{"id":"ba4336fbfd102b29","type":"text","text":"群聊推送","x":600,"y":455,"width":250,"height":60},
+		{"id":"592a22a1b0ab7c70","type":"text","text":"同一触发【】","x":-1100,"y":294,"width":250,"height":60},
+		{"id":"6a321d14b87f12f3","type":"text","text":"分流","x":-600,"y":309,"width":160,"height":60},
+		{"id":"d61db7c9ee71bb14","type":"text","text":"没有就判断需不需要转人工","x":269,"y":675,"width":160,"height":60,"color":"4"},
+		{"id":"25390aa528cc7fd3","type":"text","text":"推送新的表格","x":475,"y":780,"width":250,"height":60},
+		{"id":"278e2ad1cd087213","x":475,"y":615,"width":250,"height":60,"type":"text","text":"发送文本"}
+	],
+	"edges":[
+		{"id":"56499914565dde0f","fromNode":"6a321d14b87f12f3","fromSide":"right","toNode":"dd5945ff309085ff","toSide":"left"},
+		{"id":"c90c0fd1b31242e7","fromNode":"6a321d14b87f12f3","fromSide":"right","toNode":"b68a285b8c8fc5da","toSide":"left"},
+		{"id":"b5cdf455658106b0","fromNode":"dd5945ff309085ff","fromSide":"right","toNode":"cb2d3a61d9c5c31f","toSide":"left"},
+		{"id":"0c1121c1b165618e","fromNode":"592a22a1b0ab7c70","fromSide":"right","toNode":"64a01ebc28d8dd8f","toSide":"left"},
+		{"id":"27a4b8d91596236f","fromNode":"b68a285b8c8fc5da","fromSide":"right","toNode":"f34eacfd3efb1119","toSide":"left"},
+		{"id":"b8abd74e63f7175c","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"4a5f4a1b8738746e","toSide":"left"},
+		{"id":"84a9a2908adf111e","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"c2e66f6de5418cbd","toSide":"left"},
+		{"id":"f84e3f7967554558","fromNode":"f34eacfd3efb1119","fromSide":"right","toNode":"fa570c1a6f685396","toSide":"left"},
+		{"id":"499cf606fe1cbcda","fromNode":"fa570c1a6f685396","fromSide":"right","toNode":"d61db7c9ee71bb14","toSide":"left"},
+		{"id":"31104298178eceac","fromNode":"64a01ebc28d8dd8f","fromSide":"right","toNode":"6a321d14b87f12f3","toSide":"left"},
+		{"id":"57ac8b2fee420826","fromNode":"4a5f4a1b8738746e","fromSide":"right","toNode":"967d731d4911a849","toSide":"left"},
+		{"id":"f28d1ef7cefb2218","fromNode":"967d731d4911a849","fromSide":"right","toNode":"ba4336fbfd102b29","toSide":"left"},
+		{"id":"4162cbb36ef11c0e","fromNode":"ceefd43f940f55c5","fromSide":"right","toNode":"cf79cb2af32d5e13","toSide":"left"},
+		{"id":"4bbe6682b14e63cd","fromNode":"6a321d14b87f12f3","fromSide":"right","toNode":"ceefd43f940f55c5","toSide":"left"},
+		{"id":"e9b69aff68577267","fromNode":"ceefd43f940f55c5","fromSide":"right","toNode":"1f99ba12218b592f","toSide":"left"},
+		{"id":"950f20f37b1e4720","fromNode":"d61db7c9ee71bb14","fromSide":"right","toNode":"278e2ad1cd087213","toSide":"left"}
+	]
+}
