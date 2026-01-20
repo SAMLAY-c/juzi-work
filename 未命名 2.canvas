@@ -1,0 +1,20 @@
+{
+	"nodes":[
+		{"id":"bedc9b889b54a940","x":-364,"y":-142,"width":184,"height":50,"type":"text","text":"一上来就发广告"},
+		{"id":"cb58be9558abbd2b","x":-104,"y":-70,"width":144,"height":50,"type":"text","text":"赋值"},
+		{"id":"74e10120d2bb721a","x":-104,"y":-152,"width":250,"height":60,"type":"text","text":"表里面没有数据"},
+		{"id":"ec2054a7809df4cf","x":70,"y":-75,"width":250,"height":60,"type":"text","text":"报错\n"},
+		{"id":"82e7686985d8917c","type":"text","text":"一开始正常聊天","x":-364,"y":60,"width":184,"height":50},
+		{"id":"c7befcec96540b54","x":180,"y":117,"width":250,"height":60,"type":"text","text":"更新表"},
+		{"id":"c9e41e1370d4f686","x":-120,"y":117,"width":250,"height":60,"type":"text","text":"赋值"},
+		{"id":"9220e96735f07cdb","x":-120,"y":25,"width":250,"height":60,"type":"text","text":"表里面有数据"}
+	],
+	"edges":[
+		{"id":"de0b64c2e053892a","fromNode":"bedc9b889b54a940","fromSide":"right","toNode":"74e10120d2bb721a","toSide":"left"},
+		{"id":"da22e6d64d27be9f","fromNode":"bedc9b889b54a940","fromSide":"right","toNode":"cb58be9558abbd2b","toSide":"left"},
+		{"id":"399755c97c36f900","fromNode":"cb58be9558abbd2b","fromSide":"right","toNode":"ec2054a7809df4cf","toSide":"left"},
+		{"id":"14911f43a94b8499","fromNode":"82e7686985d8917c","fromSide":"right","toNode":"9220e96735f07cdb","toSide":"left"},
+		{"id":"3bca3917b54cc61a","fromNode":"82e7686985d8917c","fromSide":"right","toNode":"c9e41e1370d4f686","toSide":"left"},
+		{"id":"db829324dc9ad46b","fromNode":"c9e41e1370d4f686","fromSide":"right","toNode":"c7befcec96540b54","toSide":"left"}
+	]
+}
