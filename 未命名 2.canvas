@@ -1,13 +1,18 @@
 {
 	"nodes":[
-		{"id":"bedc9b889b54a940","x":-364,"y":-142,"width":184,"height":50,"type":"text","text":"一上来就发广告"},
-		{"id":"cb58be9558abbd2b","x":-104,"y":-70,"width":144,"height":50,"type":"text","text":"赋值"},
-		{"id":"74e10120d2bb721a","x":-104,"y":-152,"width":250,"height":60,"type":"text","text":"表里面没有数据"},
-		{"id":"ec2054a7809df4cf","x":70,"y":-75,"width":250,"height":60,"type":"text","text":"报错\n"},
+		{"id":"bedc9b889b54a940","type":"text","text":"一上来就发广告","x":-364,"y":-142,"width":184,"height":50},
+		{"id":"cb58be9558abbd2b","type":"text","text":"赋值","x":-104,"y":-70,"width":144,"height":50},
+		{"id":"74e10120d2bb721a","type":"text","text":"表里面没有数据","x":-104,"y":-152,"width":250,"height":60},
+		{"id":"ec2054a7809df4cf","type":"text","text":"报错\n","x":70,"y":-75,"width":250,"height":60},
 		{"id":"82e7686985d8917c","type":"text","text":"一开始正常聊天","x":-364,"y":60,"width":184,"height":50},
-		{"id":"c7befcec96540b54","x":180,"y":117,"width":250,"height":60,"type":"text","text":"更新表"},
-		{"id":"c9e41e1370d4f686","x":-120,"y":117,"width":250,"height":60,"type":"text","text":"赋值"},
-		{"id":"9220e96735f07cdb","x":-120,"y":25,"width":250,"height":60,"type":"text","text":"表里面有数据"}
+		{"id":"c7befcec96540b54","type":"text","text":"更新表","x":180,"y":117,"width":250,"height":60},
+		{"id":"c9e41e1370d4f686","type":"text","text":"赋值","x":-120,"y":117,"width":250,"height":60},
+		{"id":"9220e96735f07cdb","type":"text","text":"表里面有数据","x":-120,"y":25,"width":250,"height":60},
+		{"id":"9f6fd688e3275a39","x":72,"y":354,"width":250,"height":60,"type":"text","text":"1"},
+		{"id":"c7d20c815f4df377","x":72,"y":450,"width":250,"height":60,"type":"text","text":"2"},
+		{"id":"7376e89743f655c2","x":72,"y":540,"width":250,"height":60,"type":"text","text":"3"},
+		{"id":"32a308f5a44ca286","x":-430,"y":414,"width":250,"height":128,"type":"text","text":"话术\n是否发送\n素材编号"},
+		{"id":"bb517016bcb668a1","x":-140,"y":448,"width":145,"height":60,"type":"text","text":"规则判断"}
 	],
 	"edges":[
 		{"id":"de0b64c2e053892a","fromNode":"bedc9b889b54a940","fromSide":"right","toNode":"74e10120d2bb721a","toSide":"left"},
@@ -15,6 +20,10 @@
 		{"id":"399755c97c36f900","fromNode":"cb58be9558abbd2b","fromSide":"right","toNode":"ec2054a7809df4cf","toSide":"left"},
 		{"id":"14911f43a94b8499","fromNode":"82e7686985d8917c","fromSide":"right","toNode":"9220e96735f07cdb","toSide":"left"},
 		{"id":"3bca3917b54cc61a","fromNode":"82e7686985d8917c","fromSide":"right","toNode":"c9e41e1370d4f686","toSide":"left"},
-		{"id":"db829324dc9ad46b","fromNode":"c9e41e1370d4f686","fromSide":"right","toNode":"c7befcec96540b54","toSide":"left"}
+		{"id":"db829324dc9ad46b","fromNode":"c9e41e1370d4f686","fromSide":"right","toNode":"c7befcec96540b54","toSide":"left"},
+		{"id":"8c59a3fdf92e7d14","fromNode":"bb517016bcb668a1","fromSide":"right","toNode":"9f6fd688e3275a39","toSide":"left"},
+		{"id":"de903d87122a8a9f","fromNode":"bb517016bcb668a1","fromSide":"right","toNode":"c7d20c815f4df377","toSide":"left"},
+		{"id":"483fb119677c9d04","fromNode":"bb517016bcb668a1","fromSide":"right","toNode":"7376e89743f655c2","toSide":"left"},
+		{"id":"381658993226ba9f","fromNode":"32a308f5a44ca286","fromSide":"right","toNode":"bb517016bcb668a1","toSide":"left"}
 	]
 }
