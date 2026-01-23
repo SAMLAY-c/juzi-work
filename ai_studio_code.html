@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>句子互动 2026 Agentic AI 年会盛典</title>
+    <style>
+        :root {
+            /* 提取自句子互动Logo和官网色调 */
+            --juzi-orange: #FF6B00; 
+            --juzi-orange-glow: #ff8c38;
+            --festive-red: #D90429;
+            --tech-bg: #1a0505; /* 深红黑，既有科技感又有年味 */
+            --glass: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.15);
+            --gold: #FFD700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--tech-bg);
+            background-image: radial-gradient(circle at 50% 50%, #4a0a0a 0%, #1a0505 100%);
+            color: white;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 背景粒子层 */
+        #canvas-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* 顶部 Logo 区域 */
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* 模拟句子互动的Logo (橙色气泡) */
+        .logo-bubble {
+            width: 40px;
+            height: 40px;
+            background: var(--juzi-orange);
+            border-radius: 50% 50% 50% 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(255, 107, 0, 0.5);
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 右上角奖池状态 - 模仿SaaS仪表盘 */
+        .status-panel {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+        }
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--juzi-orange);
+        }
+        .stat-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 4px;
+        }
+
+        /* 主舞台 */
+        .main-stage {
+            position: relative;
+            z-index: 10;
+            width: 70%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        /* 奖项标题 */
+        .prize-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+        }
+        .prize-name {
+            font-weight: 800;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* 抽奖核心显示区 - 模仿对话窗口/Agent面板 */
+        .lottery-box {
+            background: rgba(20, 20, 25, 0.6);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            border-radius: 24px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        /* 装饰元素：模仿Logo的气泡浮在背景 */
+        .lottery-box::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--juzi-orange);
+            filter: blur(120px);
+            opacity: 0.2;
+            animation: pulse 4s infinite;
+        }
+
+        #result-display {
+            font-size: 80px;
+            font-weight: 900;
+            color: #fff;
+            z-index: 2;
+            letter-spacing: 4px;
+            /* 初始状态 */
+        }
+        
+        .rolling {
+            opacity: 0.8;
+            filter: blur(2px); /* 运动模糊 */
+        }
+
+        /* 控制按钮 - 模仿Logo形状 */
+        .control-btn {
+            background: var(--juzi-orange);
+            color: white;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px 80px;
+            border-radius: 50px 50px 50px 10px; /* Logo形状 */
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 107, 0, 0.6);
+            background: #ff7b1a;
+        }
+
+        .control-btn:active {
+            transform: translateY(2px);
+        }
+
+        /* 模拟键盘提示 */
+        .key-hint {
+            margin-top: 30px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.3);
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .key {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: monospace;
+        }
+
+        /* 中奖特效 */
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.2; }
+        }
+
+        /* 奖项列表侧边栏 (可选) */
+        .prize-sidebar {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .prize-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            color: rgba(255,255,255,0.5);
+            transition: 0.3s;
+        }
+        .prize-item.active {
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--juzi-orange);
+            border-left: 3px solid var(--juzi-orange);
+        }
+        .prize-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .prize-item.active .prize-badge {
+            background: var(--juzi-orange);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 背景粒子 -->
+    <canvas id="canvas-bg"></canvas>
+
+    <!-- 顶部 Logo -->
+    <div class="header">
+        <div class="logo-bubble">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"/>
+            </svg>
+        </div>
+        <div class="logo-text">句子互动 JUZI.BOT</div>
+    </div>
+
+    <!-- 右上角数据 -->
+    <div class="status-panel">
+        <div class="stat-card">
+            <div class="stat-num">108</div>
+            <div class="stat-label">Agent 在线 (总人数)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num" id="remaining-count">108</div>
+            <div class="stat-label">待选中</div>
+        </div>
+    </div>
+
+    <!-- 左侧奖项列表 -->
+    <div class="prize-sidebar">
+        <div class="prize-item">
+            <span class="prize-badge">1</span>
+            <span>特等奖 · Agentic Max</span>
+        </div>
+        <div class="prize-item active">
+            <span class="prize-badge">3</span>
+            <span>一等奖 · iPad Pro</span>
+        </div>
+        <div class="prize-item">
+            <span class="prize-badge">5</span>
+            <span>二等奖 · AirPods</span>
+        </div>
+    </div>
+
+    <!-- 主舞台 -->
+    <div class="main-stage">
+        <div class="prize-title">
+            正在抽取 <span class="prize-name">一等奖 · iPad Pro</span>
+        </div>
+
+        <div class="lottery-box">
+            <div id="result-display">Ready</div>
+        </div>
+
+        <button class="control-btn" id="action-btn" onclick="toggleLottery()">
+            启动 Agent 抽奖
+        </button>
+
+        <div class="key-hint">
+            <span><span class="key">Space</span> 开始 / 停止</span>
+            <span><span class="key">Enter</span> 确认记录</span>
+        </div>
+    </div>
+
+    <script>
+        // --- 模拟员工数据 ---
+        const employees = [
+            "张三", "李四", "王五", "赵六", "Elon", "Sam", "Jensen", "Lisa", 
+            "产品-小明", "研发-大牛", "销售-Judy", "运营-Mike", "HR-Sarah",
+            "Agent-001", "Agent-007", "Bot-Alpha", "Bot-Beta"
+        ];
+        // 扩充数据演示用
+        let pool = [];
+        for(let i=0; i<5; i++) pool = pool.concat(employees);
+
+        let isRunning = false;
+        let timer = null;
+        const display = document.getElementById('result-display');
+        const btn = document.getElementById('action-btn');
+
+        // --- 抽奖逻辑 ---
+        function toggleLottery() {
+            if (isRunning) {
+                stopLottery();
+            } else {
+                startLottery();
+            }
+        }
+
+        function startLottery() {
+            isRunning = true;
+            btn.innerHTML = "锁定目标...";
+            btn.style.backgroundColor = "#D90429"; // 变成红色表示停止
+            display.classList.add('rolling');
+            
+            // 极客风格的随机滚动
+            timer = setInterval(() => {
+                const randomName = pool[Math.floor(Math.random() * pool.length)];
+                display.innerText = randomName;
+            }, 50); // 50ms 刷新率
+        }
+
+        function stopLottery() {
+            isRunning = false;
+            clearInterval(timer);
+            display.classList.remove('rolling');
+            
+            // 最终中奖者
+            const winner = pool[Math.floor(Math.random() * pool.length)];
+            display.innerText = winner;
+            
+            // 视觉反馈
+            btn.innerHTML = "再次启动";
+            btn.style.backgroundColor = "var(--juzi-orange)";
+            
+            // 触发简单的庆祝特效
+            fireConfetti();
+        }
+
+        // 键盘控制
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); // 防止滚动页面
+                toggleLottery();
+            }
+        });
+
+        // --- 背景粒子特效 (Canvas) ---
+        // 模拟神经网络连接，使用金色和红色
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 1;
+                this.vy = (Math.random() - 0.5) * 1;
+                this.size = Math.random() * 2 + 1;
+                // 随机金色或浅红
+                this.color = Math.random() > 0.5 ? 'rgba(255, 215, 0, ' : 'rgba(255, 107, 0, '; 
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + '0.5)';
+                ctx.fill();
+            }
+        }
+
+        // 初始化粒子
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // 绘制连线
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = particles[i].color + (1 - dist/150) * 0.2 + ')';
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // 简单的撒花模拟
+        function fireConfetti() {
+            // 这里只是示意，实际生产环境建议引入 confetti.js 库
+            const colors = ['#FFD700', '#FF6B00', '#D90429'];
+            for(let i=0; i<50; i++) {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.style.left = '50%';
+                div.style.top = '50%';
+                div.style.width = '10px';
+                div.style.height = '10px';
+                div.style.backgroundColor = colors[Math.floor(Math.random()*3)];
+                div.style.transition = 'all 1s ease-out';
+                div.style.zIndex = '99';
+                document.body.appendChild(div);
+                
+                setTimeout(() => {
+                    const x = (Math.random() - 0.5) * 800;
+                    const y = (Math.random() - 0.5) * 800;
+                    div.style.transform = `translate(${x}px, ${y}px) scale(0)`;
+                    div.style.opacity = 0;
+                }, 10);
+                setTimeout(() => div.remove(), 1000);
+            }
+        }
+    </script>
+</body>
+</html>

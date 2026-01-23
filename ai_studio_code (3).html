@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUZI.BOT Agent Lottery</title>
+    <style>
+        :root {
+            /* 句子互动的品牌橙 + 节日红的融合 */
+            --brand-orange: #FF5E00;
+            --brand-yellow: #FFD000;
+            --bg-top: #ff4b1f;
+            --bg-bottom: #ff9068;
+            
+            --glass-white: rgba(255, 255, 255, 0.9);
+            --glass-trans: rgba(255, 255, 255, 0.25);
+            
+            --text-main: #BF211E; /* 深红色字，在浅底上对比强烈 */
+            --font-tech: 'Courier New', Courier, monospace;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            /* 极亮的高能渐变背景 - 解决“太暗”的问题 */
+            background: linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
+            height: 100vh;
+            overflow: hidden;
+            font-family: var(--font-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* 背景：巨大的品牌水印 */
+        .bg-watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-10deg);
+            font-size: 40vh;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.07);
+            white-space: nowrap;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 背景：科技感网格地面 */
+        .grid-floor {
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg);
+            animation: moveGrid 5s linear infinite;
+            z-index: 0;
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 60%);
+        }
+
+        @keyframes moveGrid {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            position: absolute; top: 0; left: 0; width: 100%;
+            padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex; align-items: center; gap: 15px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        
+        /* 纯CSS绘制的句子互动气泡Logo */
+        .logo-icon {
+            width: 32px; height: 32px;
+            background: #fff;
+            color: var(--brand-orange);
+            border-radius: 8px 8px 8px 0; /* 气泡形状 */
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900;
+        }
+
+        .brand-name {
+            font-weight: 800; color: #fff; font-size: 20px; letter-spacing: 1px;
+        }
+
+        /* 装饰性数据流 */
+        .tech-decor {
+            position: absolute;
+            color: rgba(255,255,255,0.4);
+            font-family: var(--font-tech);
+            font-size: 10px;
+            z-index: 1;
+        }
+        .decor-l { left: 40px; bottom: 40px; text-align: left; }
+        .decor-r { right: 40px; top: 120px; text-align: right; }
+
+        /* 主舞台 - 白底黑字(红字)，最清晰的阅读体验 */
+        .stage-container {
+            z-index: 10;
+            position: relative;
+            background: var(--glass-white);
+            padding: 4px; /* 双层边框结构 */
+            border-radius: 40px;
+            box-shadow: 
+                0 20px 60px rgba(191, 33, 30, 0.4),
+                0 0 0 10px rgba(255,255,255,0.2);
+            width: 800px;
+            transform: translateY(-20px);
+        }
+
+        .stage-inner {
+            background: #fff;
+            border-radius: 36px;
+            padding: 40px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #fff;
+        }
+
+        /* 顶部奖项标签 */
+        .prize-tag {
+            display: inline-block;
+            background: #FFE0D1;
+            color: var(--brand-orange);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .current-prize-name {
+            font-size: 32px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        /* 滚动的名字区域 */
+        .name-box {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--brand-orange);
+            /* 更有质感的文字渐变 */
+            background: linear-gradient(45deg, var(--brand-orange), #FF0055);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: var(--font-main);
+        }
+
+        /* 模拟扫描线 */
+        .scan-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 94, 0, 0.1), transparent);
+            transform: translateY(-100%);
+            animation: scanning 2s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes scanning { 100% { transform: translateY(100%); } }
+
+        /* 底部控制栏 */
+        .controls {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        /* 巨型主按钮 - 模仿气泡 */
+        .main-btn {
+            background: #fff;
+            color: var(--brand-orange);
+            font-size: 24px;
+            font-weight: 800;
+            padding: 20px 80px;
+            border: none;
+            /* 重点：JuziBot 特色圆角 */
+            border-radius: 50px 50px 50px 10px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-btn::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.8), transparent);
+            opacity: 0; transition: 0.2s;
+        }
+
+        .main-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .main-btn.active {
+            background: var(--brand-orange);
+            color: #fff;
+            box-shadow: 0 0 20px var(--brand-orange);
+        }
+
+        /* 左侧奖池列表 - 改为悬浮卡片 */
+        .sidebar {
+            position: absolute; left: 40px; top: 50%; transform: translateY(-50%);
+            z-index: 10;
+        }
+        .pool-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            width: 200px;
+        }
+        .pool-header {
+            font-size: 12px; opacity: 0.8; margin-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+        .pool-item {
+            display: flex; justify-content: space-between; margin-bottom: 8px;
+            font-size: 14px; font-weight: 500;
+        }
+        .pool-item.active {
+            color: var(--brand-yellow);
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 208, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 背景元素 -->
+    <div class="bg-watermark">JUZI.BOT</div>
+    <div class="grid-floor"></div>
+
+    <!-- 装饰性数据 -->
+    <div class="tech-decor decor-l">
+        SYSTEM: ONLINE<br>
+        AGENTS: 108<br>
+        LATENCY: 12ms
+    </div>
+    <div class="tech-decor decor-r">
+        RPA_CORE: ACTIVE<br>
+        TARGET: LUCKY_ONE<br>
+        v2026.01.29
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="brand">
+            <!-- 模拟Logo图标 -->
+            <div class="logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                   <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"/>
+                </svg>
+            </div>
+            <span class="brand-name">句子互动</span>
+        </div>
+        <div style="color:white; font-weight:700; font-size:24px;">2026 AGENT GALA</div>
+    </div>
+
+    <!-- 左侧列表 -->
+    <div class="sidebar">
+        <div class="pool-card">
+            <div class="pool-header">Prize Pool / 奖池</div>
+            <div class="pool-item">
+                <span>Agentic Max</span> <span style="opacity:0.5">x1</span>
+            </div>
+            <div class="pool-item active">
+                <span>iPad Pro</span> <span>x3</span>
+            </div>
+            <div class="pool-item">
+                <span>AirPods</span> <span style="opacity:0.5">x5</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主舞台 -->
+    <div class="stage-container">
+        <div class="stage-inner">
+            <div class="scan-overlay"></div>
+            <span class="prize-tag">CURRENT PRIZE / 正在抽取</span>
+            <div class="current-prize-name">一等奖 · iPad Pro (M4)</div>
+            
+            <div class="name-box" id="result-display">
+                READY
+            </div>
+        </div>
+    </div>
+
+    <!-- 控制区 -->
+    <div class="controls">
+        <button class="main-btn" id="action-btn" onclick="toggleLottery()">
+            连接好运 Connect
+        </button>
+        <div style="color: rgba(255,255,255,0.6); font-size: 12px; font-family: var(--font-tech);">
+            [SPACE] 启动/停止 &nbsp;&nbsp; [ENTER] 确认
+        </div>
+    </div>
+
+    <script>
+        const employees = [
+            "Lisa", "Jennie", "Rose", "Jisoo", 
+            "Elon Musk", "Sam Altman", "Jensen Huang",
+            "张三", "李四", "王五", "赵六",
+            "Agent-001", "Agent-002", "Agent-003"
+        ];
+        
+        // 扩充数据让滚动更流畅
+        let pool = [];
+        for(let i=0; i<10; i++) pool = pool.concat(employees);
+
+        let isRunning = false;
+        let animationFrame;
+        const display = document.getElementById('result-display');
+        const btn = document.getElementById('action-btn');
+
+        function toggleLottery() {
+            if (isRunning) stop();
+            else start();
+        }
+
+        function start() {
+            isRunning = true;
+            btn.classList.add('active');
+            btn.innerHTML = "正在匹配 Agent...";
+            
+            // 极速滚动效果
+            let lastTime = 0;
+            const animate = (time) => {
+                if (time - lastTime > 50) { // 50ms 刷新一次名字
+                    const name = pool[Math.floor(Math.random() * pool.length)];
+                    display.innerText = name;
+                    lastTime = time;
+                }
+                if (isRunning) animationFrame = requestAnimationFrame(animate);
+            };
+            requestAnimationFrame(animate);
+        }
+
+        function stop() {
+            isRunning = false;
+            cancelAnimationFrame(animationFrame);
+            
+            // 最终中奖者
+            const winner = pool[Math.floor(Math.random() * pool.length)];
+            display.innerText = winner;
+            
+            // 状态恢复
+            btn.classList.remove('active');
+            btn.innerHTML = "再次启动 Re-Connect";
+            
+            createPixelExplosion();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); 
+                toggleLottery();
+            }
+        });
+
+        // 像素爆炸特效 (模拟Logo的像素尾巴)
+        function createPixelExplosion() {
+            const colors = ['#FFF', '#FF5E00', '#FFD000'];
+            for(let i=0; i<60; i++) {
+                const pixel = document.createElement('div');
+                pixel.style.position = 'absolute';
+                pixel.style.left = '50%';
+                pixel.style.top = '40%';
+                pixel.style.width = '10px';
+                pixel.style.height = '10px';
+                pixel.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                pixel.style.zIndex = '100';
+                document.body.appendChild(pixel);
+                
+                // 随机飞散
+                const angle = Math.random() * Math.PI * 2;
+                const dist = Math.random() * 500;
+                const duration = Math.random() * 1 + 0.5;
+                
+                pixel.animate([
+                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                    { transform: `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0, .9, .57, 1)',
+                    fill: 'forwards'
+                });
+                
+                setTimeout(() => pixel.remove(), duration * 1000);
+            }
+        }
+    </script>
+</body>
+</html>

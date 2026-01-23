@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 句子互动新春年会</title>
+    <style>
+        :root {
+            --cn-red: #E60012;       /* 中国红 */
+            --dark-red: #8B0012;     /* 深红衬托 */
+            --neon-red: #FF2A4D;     /* 科技亮红 */
+            --rich-gold: #FFD700;    /* 土豪金 */
+            --shimmer-gold: #FFF8D5; /* 亮金 */
+            --glass-red: rgba(180, 0, 20, 0.4);
+            
+            --font-tech: 'Courier New', monospace;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            /* 放射性渐变，模拟舞台聚光灯效果，中心亮，四周深 */
+            background: radial-gradient(circle at 50% 30%, var(--neon-red) 0%, var(--cn-red) 40%, var(--dark-red) 90%);
+            height: 100vh;
+            overflow: hidden;
+            font-family: var(--font-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        /* 巨大的背景文字水印 - 增加层次感 */
+        .bg-watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg) scale(1.5);
+            font-size: 30vw;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.05); /* 深色水印压住红底 */
+            white-space: nowrap;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 漂浮的光斑 - 模拟灯笼的氛围 */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.6;
+            animation: float 10s infinite ease-in-out;
+            z-index: 1;
+        }
+        .orb-1 { width: 300px; height: 300px; background: #FF6B00; top: -50px; left: 10%; animation-delay: 0s; }
+        .orb-2 { width: 400px; height: 400px; background: #FF0055; bottom: -100px; right: 10%; animation-delay: -2s; }
+        .orb-3 { width: 150px; height: 150px; background: var(--rich-gold); top: 20%; right: 20%; opacity: 0.3; animation-delay: -5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.1); }
+        }
+
+        /* 粒子画布 */
+        #canvas-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;
+            pointer-events: none;
+        }
+
+        /* 顶部 Logo */
+        .navbar {
+            position: absolute; top: 0; left: 0; width: 100%;
+            padding: 40px 60px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 20;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 15px;
+        }
+        .logo-box {
+            background: white; color: var(--cn-red);
+            padding: 8px 12px; border-radius: 8px; font-weight: 900; font-size: 24px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+        .year-tag {
+            border: 1px solid rgba(255,255,255,0.5); padding: 5px 15px; border-radius: 20px;
+            font-family: var(--font-tech); background: rgba(0,0,0,0.2);
+        }
+
+        /* 侧边栏 - 金色风格 */
+        .sidebar {
+            position: absolute; left: 60px; top: 50%; transform: translateY(-50%); z-index: 20;
+        }
+        .pool-list {
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .pool-item {
+            background: rgba(0,0,0,0.2);
+            border-left: 4px solid rgba(255,255,255,0.3);
+            padding: 15px 25px;
+            border-radius: 0 10px 10px 0;
+            backdrop-filter: blur(5px);
+            color: rgba(255,255,255,0.7);
+            transition: 0.3s;
+            min-width: 220px;
+        }
+        .pool-item.active {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), transparent);
+            border-left: 4px solid var(--rich-gold);
+            color: var(--rich-gold);
+            transform: scale(1.05) translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        .pool-item.active strong { font-size: 1.2em; text-shadow: 0 0 10px var(--rich-gold); }
+
+        /* 主舞台 - 红包风格 */
+        .stage-wrapper {
+            z-index: 30;
+            position: relative;
+            transform: translateY(-20px);
+        }
+        
+        .red-envelope-card {
+            width: 900px;
+            height: 400px;
+            /* 核心材质：红色磨砂 + 渐变 */
+            background: linear-gradient(135deg, rgba(215, 10, 10, 0.7), rgba(160, 0, 10, 0.8));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 0, 0.5); /* 金边 */
+            border-radius: 40px;
+            box-shadow: 
+                0 0 0 8px rgba(255, 215, 0, 0.1), /* 外发光环 */
+                0 30px 80px rgba(0,0,0,0.6),      /* 深度投影 */
+                inset 0 0 60px rgba(255, 0, 0, 0.5); /* 内发光 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 装饰角标 - 传统云纹的极简版 */
+        .corner-decor {
+            position: absolute; width: 60px; height: 60px;
+            border: 4px solid var(--rich-gold);
+            opacity: 0.8;
+        }
+        .tl { top: 20px; left: 20px; border-right: 0; border-bottom: 0; border-radius: 20px 0 0 0; }
+        .tr { top: 20px; right: 20px; border-left: 0; border-bottom: 0; border-radius: 0 20px 0 0; }
+        .bl { bottom: 20px; left: 20px; border-right: 0; border-top: 0; border-radius: 0 0 0 20px; }
+        .br { bottom: 20px; right: 20px; border-left: 0; border-top: 0; border-radius: 0 0 20px 0; }
+
+        .prize-label {
+            color: var(--rich-gold);
+            font-size: 18px; letter-spacing: 4px;
+            margin-bottom: 20px; font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.3); padding: 5px 20px; border-radius: 50px;
+        }
+
+        .prize-big-name {
+            font-size: 40px; color: white; font-weight: 700; margin-bottom: 10px;
+        }
+
+        #result-display {
+            font-size: 100px;
+            font-weight: 900;
+            line-height: 1.2;
+            /* 黄金渐变文字 */
+            background: linear-gradient(to bottom, #FFF8D5 10%, #FFD700 60%, #FF8C00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 0px rgba(139, 0, 0, 0.8));
+            transform: scale(1);
+            transition: transform 0.1s;
+        }
+        .rolling { transform: scale(0.95); opacity: 0.9; filter: blur(2px) !important; }
+
+        /* 黄金按钮 */
+        .gold-btn {
+            margin-top: 60px;
+            background: linear-gradient(180deg, #FFECB3 0%, #FFD700 50%, #FFA000 100%);
+            border: none;
+            padding: 20px 100px;
+            font-size: 32px; font-weight: 900;
+            color: #8B0000; /* 深红字 */
+            border-radius: 100px;
+            cursor: pointer;
+            box-shadow: 
+                0 10px 30px rgba(255, 61, 0, 0.5),
+                inset 0 2px 2px white;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+            z-index: 30;
+        }
+        
+        /* 按钮扫光特效 */
+        .gold-btn::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent);
+            transform: rotate(45deg) translate(-100%, 0);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: rotate(45deg) translate(-100%, 0); }
+            20% { transform: rotate(45deg) translate(100%, 0); }
+            100% { transform: rotate(45deg) translate(100%, 0); }
+        }
+
+        .gold-btn:active { transform: translateY(3px); box-shadow: 0 5px 15px rgba(255, 61, 0, 0.5); }
+
+        .instruction {
+            margin-top: 20px; color: rgba(255,255,255,0.6); font-size: 14px; letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 氛围元素 -->
+    <div class="bg-watermark">2026 GALA</div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <canvas id="canvas-bg"></canvas>
+
+    <!-- 顶部 -->
+    <div class="navbar">
+        <div class="brand">
+            <div class="logo-box">句子互动</div>
+            <div class="year-tag">JUZI.BOT AI AGENT</div>
+        </div>
+        <div style="font-weight:900; font-size:24px; text-shadow:0 0 10px rgba(255,0,0,0.5);">新年快乐 · HAPPY NEW YEAR</div>
+    </div>
+
+    <!-- 左侧奖池 -->
+    <div class="sidebar">
+        <div class="pool-list">
+            <div class="pool-item">
+                <div style="font-size:12px; opacity:0.7">特等奖</div>
+                <strong>Agentic Max</strong>
+            </div>
+            <div class="pool-item active">
+                <div style="font-size:12px; opacity:0.7">一等奖</div>
+                <strong>iPad Pro (M4)</strong>
+            </div>
+            <div class="pool-item">
+                <div style="font-size:12px; opacity:0.7">二等奖</div>
+                <strong>AirPods Pro</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主舞台 -->
+    <div class="stage-wrapper">
+        <div class="red-envelope-card">
+            <!-- 金色四角 -->
+            <div class="corner-decor tl"></div><div class="corner-decor tr"></div>
+            <div class="corner-decor bl"></div><div class="corner-decor br"></div>
+            
+            <div class="prize-label">正在抽取 / LUCKY DRAW</div>
+            <div class="prize-big-name">一等奖 · iPad Pro</div>
+            <div id="result-display">Ready</div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="gold-btn" id="action-btn" onclick="toggleLottery()">开 奖</button>
+            <div class="instruction">[空格 Space] 启动  ·  [回车 Enter] 确认</div>
+        </div>
+    </div>
+
+    <script>
+        // 模拟数据
+        const names = [
+            "Jensen", "Lisa Su", "Sam Altman", "Elon Musk", 
+            "张三", "李四", "王五", "赵六", "钱七", 
+            "产品部-小王", "研发部-大牛", "市场部-Amy", "Agent-007"
+        ];
+        let pool = [...names, ...names, ...names]; // 填充数据
+
+        let isRunning = false;
+        let timer;
+        const display = document.getElementById('result-display');
+        const btn = document.getElementById('action-btn');
+
+        function toggleLottery() {
+            if(isRunning) stop();
+            else start();
+        }
+
+        function start() {
+            isRunning = true;
+            btn.innerHTML = "停止 STOP";
+            // 按钮变红，表示紧急停止
+            btn.style.background = "linear-gradient(180deg, #ff4d4d, #cc0000)"; 
+            btn.style.color = "white";
+            display.classList.add('rolling');
+
+            timer = setInterval(() => {
+                const r = pool[Math.floor(Math.random() * pool.length)];
+                display.innerText = r;
+            }, 50);
+        }
+
+        function stop() {
+            isRunning = false;
+            clearInterval(timer);
+            display.classList.remove('rolling');
+            
+            const winner = pool[Math.floor(Math.random() * pool.length)];
+            display.innerText = winner;
+
+            // 按钮恢复金色
+            btn.innerHTML = "开 奖";
+            btn.style.background = ""; 
+            btn.style.color = "#8B0000";
+
+            fireFireworks();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if(e.code === 'Space') toggleLottery();
+        });
+
+        // --- Canvas: 上升的金粉 (Wealth Rising) ---
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class GoldDust {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = height + Math.random() * 50;
+                this.vy = Math.random() * 1.5 + 0.5; // 向上飘
+                this.size = Math.random() * 3;
+                this.color = `rgba(255, 215, 0, ${Math.random() * 0.5 + 0.2})`;
+            }
+            update() {
+                this.y -= this.vy;
+                if(this.y < -10) this.y = height + 10;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        for(let i=0; i<100; i++) particles.push(new GoldDust());
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // 简单的礼花逻辑
+        function fireFireworks() {
+            // 这里可以添加更复杂的礼花库，为了保持单文件简洁，这里只做简单的缩放反馈
+            const card = document.querySelector('.red-envelope-card');
+            card.style.transform = "scale(1.05)";
+            card.style.boxShadow = "0 0 100px rgba(255, 215, 0, 0.8)";
+            setTimeout(() => {
+                card.style.transform = "scale(1)";
+                card.style.boxShadow = "0 30px 80px rgba(0,0,0,0.6)";
+            }, 300);
+        }
+    </script>
+</body>
+</html>
